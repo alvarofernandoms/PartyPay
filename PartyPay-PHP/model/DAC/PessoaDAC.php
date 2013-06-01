@@ -3,6 +3,7 @@
 class PessoaDAC {
     
     public static function persist($pessoa){
+        
         include_once 'conexao.php';
         $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `id`, `senha`,`sexo`,emailConfirmado,codConfirmacao) VALUES 
             ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','NULL','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."');";     
@@ -10,7 +11,7 @@ class PessoaDAC {
         mysql_close($cn);
     }
     
-    public static function updateInfo($pessoa,$atributo,$atributoNovo){
+    public static function updateInfo(Pessoa $pessoa,$atributo,$atributoNovo){
        include_once 'conexao.php';
         $sql="UPDATE `pessoas` SET `$atributo`=$atributoNovo WHERE id=".$pessoa->getId();
         mysql_query($sql)or die(mysql_error());
