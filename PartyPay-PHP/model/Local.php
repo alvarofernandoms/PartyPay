@@ -1,14 +1,15 @@
 <?php
+
 require_once 'DAC/LocalDAC.php';
+
 class Local {
+
     private $endereço;
     private $coordenadaGoogleMaps;
     private $fotos;
     private $id;
     private $nome;
-    
-    
-    
+
     public function getNome() {
         return $this->nome;
     }
@@ -17,7 +18,6 @@ class Local {
         $this->nome = $nome;
     }
 
-        
     public function getId() {
         return $this->id;
     }
@@ -26,7 +26,6 @@ class Local {
         $this->id = $id;
     }
 
-        
     public function getEndereço() {
         return $this->endereço;
     }
@@ -51,17 +50,18 @@ class Local {
         $this->fotos = $fotos;
     }
 
-    public function persist(){
+    public function persist() {
         LocalDAC::persist($this);
     }
-    
-    public function updateInfo($atributo,$novoValor){
+
+    public function updateInfo($atributo, $novoValor) {
         LocalDAC::updateInfo($this, $atributo, $novoValor);
     }
-    
-    public function delete(){
+
+    public function delete() {
         LocalDAC::delete($this);
     }
+
 }
 
 ?>
