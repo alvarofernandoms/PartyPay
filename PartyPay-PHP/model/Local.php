@@ -13,6 +13,15 @@ class Local {
     private $fotos;
     private $id;
     private $nome;
+    private $estado;
+    
+    public function getEstado() {
+        return $this->estado;
+    }
+
+    public function setEstado($estado) {
+        $this->estado = $estado;
+    }
     
     function __construct() {
         
