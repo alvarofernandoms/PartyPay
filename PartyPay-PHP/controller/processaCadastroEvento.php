@@ -14,6 +14,8 @@ $horaTermino=$_POST['horaTermino'];
 
 $evento= new Evento();
 
+require_once 'recebe_upload_evento.php';
+
 $evento->setNome($nome);
 $evento->setDataInicio($dataInicio);
 $evento->setDataTermino($dataTermino);

@@ -26,7 +26,7 @@
     
     $local= new Local();
     
-    require_once "recebe_upload.php";
+    require_once "recebe_upload_local.php";
     
     $local->setBairro($bairro);
     $local->setCep($cep);

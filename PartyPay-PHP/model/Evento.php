@@ -18,7 +18,17 @@ class Evento {
     private $numeroIngressos;
     private $horaInicio;
     private $horaTermino;
+    private $miniatura;
     
+    public function getMiniatura() {
+        return $this->miniatura;
+    }
+
+    public function setMiniatura($miniatura) {
+        $this->miniatura = $miniatura;
+    }
+
+        
     public function getHoraInicio() {
         return $this->horaInicio;
     }
