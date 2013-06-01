@@ -33,10 +33,8 @@
     $local->setNumero($numero);
     $local->setPais($pais);
     
-    $id=$local->persist();
+    $_SESSION['localid']=$local->persist();
     
-    
-
-
-
+    header("Location:../view/cadastroEvento.php");
+ 
 ?>
