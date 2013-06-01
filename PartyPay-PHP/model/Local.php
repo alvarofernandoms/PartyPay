@@ -2,12 +2,69 @@
 require_once 'DAC/LocalDAC.php';
 class Local {
     private $endereço;
+    private $numero;
+    private $complemento;
+    private $bairro;
+    private $cidade;
+    private $cep;
+    private $pais;
     private $coordenadaGoogleMaps;
     private $fotos;
     private $id;
     private $nome;
     
+    function __construct() {
+        
+    }
+
     
+    public function getNumero() {
+        return $this->numero;
+    }
+
+    public function setNumero($numero) {
+        $this->numero = $numero;
+    }
+
+    public function getComplemento() {
+        return $this->complemento;
+    }
+
+    public function setComplemento($complemento) {
+        $this->complemento = $complemento;
+    }
+
+    public function getBairro() {
+        return $this->bairro;
+    }
+
+    public function setBairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
+    public function getCidade() {
+        return $this->cidade;
+    }
+
+    public function setCidade($cidade) {
+        $this->cidade = $cidade;
+    }
+
+    public function getCep() {
+        return $this->cep;
+    }
+
+    public function setCep($cep) {
+        $this->cep = $cep;
+    }
+
+    public function getPais() {
+        return $this->pais;
+    }
+
+    public function setPais($pais) {
+        $this->pais = $pais;
+    } 
     
     public function getNome() {
         return $this->nome;
