@@ -121,6 +121,18 @@ class Evento {
     public function setLocal($local) {
         $this->local = $local;
     }
+    
+    public function persist() {
+        EventoDAC::persist($this);
+    }
+
+    public function updateInfo($atributo, $novoValor) {
+        EventoDAC::updateInfo($this, $atributo, $novoValor);
+    }
+
+    public function delete() {
+        EventoDAC::delete($this);
+    }
 
 
 }
