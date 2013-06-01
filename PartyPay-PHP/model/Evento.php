@@ -15,7 +15,40 @@ class Evento {
     private $local;
     private $facebookEventPage;
     private $descricao;
+    private $numeroIngressos;
+    private $horaInicio;
+    private $horaTermino;
+    
+    public function getHoraInicio() {
+        return $this->horaInicio;
+    }
 
+    public function setHoraInicio($horaInicio) {
+        $this->horaInicio = $horaInicio;
+    }
+
+    public function getHoraTermino() {
+        return $this->horaTermino;
+    }
+
+    public function setHoraTermino($horaTermino) {
+        $this->horaTermino = $horaTermino;
+    }
+    
+    function __construct() {
+        
+    }
+
+    
+    public function getNumeroIngressos() {
+        return $this->numeroIngressos;
+    }
+
+    public function setNumeroIngressos($numeroIngressos) {
+        $this->numeroIngressos = $numeroIngressos;
+    }
+
+    
     public function getDataCriacao() {
         return $this->dataCriacao;
     }
@@ -70,14 +103,6 @@ class Evento {
 
     public function setDataTermino($dataTermino) {
         $this->dataTermino = $dataTermino;
-    }
-
-    public function getImage() {
-        return $this->image;
-    }
-
-    public function setImage($image) {
-        $this->image = $image;
     }
 
     public function getPreçoMasc() {
