@@ -1,7 +1,7 @@
 <?php
 require_once 'DAC/LocalDAC.php';
 class Local {
-    private $endereço;
+    private $endereco;
     private $numero;
     private $complemento;
     private $bairro;
@@ -102,12 +102,12 @@ class Local {
     }
 
         
-    public function getEndereço() {
+    public function getEndereco() {
         return $this->endereço;
     }
 
-    public function setEndereço($endereço) {
-        $this->endereço = $endereço;
+    public function setEndereco($endereco) {
+        $this->endereço = $endereco;
     }
 
     public function getCoordenadaGoogleMaps() {

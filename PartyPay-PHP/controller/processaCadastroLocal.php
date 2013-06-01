@@ -1,7 +1,7 @@
 <?php
 require_once '../model/Local.php';
 
-    $endereço=$_POST['endereco'];
+    $endereco=$_POST['endereco'];
     //$coordenadaGoogleMaps = $_POST['coordenadas'];
     //$foto=
     $nome=$_POST['nome'];
@@ -15,7 +15,7 @@ require_once '../model/Local.php';
     
     
     $strList="\\\'\"&\n\r<>\b";
-    addcslashes($endereço,$strList);
+    addcslashes($endereco,$strList);
     addcslashes($nome,$strList);
     addcslashes($numero,$strList);
     addcslashes($complemento,$strList);
@@ -33,7 +33,7 @@ require_once '../model/Local.php';
     $local->setCep($cep);
     $local->setCidade($cidade);
     $local->setComplemento($complemento);
-    $local->setEndereço($endereço);
+    $local->setEndereco($endereco);
     $local->setNome($nome);
     $local->setNumero($numero);
     $local->setPais($pais);

@@ -1,24 +1,27 @@
 <?php
 
+require_once 'C:/xampp-portable/htdocs/PartyPay/PartyPay-PHP/model/Local.php';
+
 class LocalDAC {
+    
 
     public static function persist(Local $local) {
         include_once 'conexao.php';
         $sql = "INSERT INTO `locais`(`id`, `endereco`, `coordenadasGoogleMaps`, 
             `nome`, `numero`, `complemento`, `bairro`, `cidade`, `cep`, `pais`, 
             `fotos`, `estado`,`miniatura`) 
-            VALUES (NULL," . $local->getEndereco() . ","
-                . $local->getCoordenadasGoogleMaps() . ","
-                . $local->getNome() . ","
-                . $local->getNumero() . ","
-                . $local->getComplemento() . ","
-                . $local->getBairro() . ","
-                . $local->getCidade() . ","
-                . $local->getCep() . ","
-                . $local->getPais() . ","
-                . $local->getFotos() . ","
-                . $local->getEstado() . ","
-                .$local->getMiniatura().")";
+            VALUES (NULL,'" . $local->getEndereco() . "','"
+                . $local->getCoordenadaGoogleMaps() . "','"
+                . $local->getNome() . "','"
+                . $local->getNumero() . "','"
+                . $local->getComplemento() . "','"
+                . $local->getBairro() . "','"
+                . $local->getCidade() . "','"
+                . $local->getCep() . "','"
+                . $local->getPais() . "','"
+                . $local->getFotos() . "','"
+                . $local->getEstado() . "','"
+                .$local->getMiniatura()."')";
         mysql_query($sql) or die(mysql_error());
         return mysql_insert_id();
         mysql_close($cn);

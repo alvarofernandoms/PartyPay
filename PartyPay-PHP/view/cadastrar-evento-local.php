@@ -1,3 +1,7 @@
+<?php
+require '../controller/restrito.php';
+?>
+
 <html>
   <head>
     <title>Novo evento - Party Pay</title>
