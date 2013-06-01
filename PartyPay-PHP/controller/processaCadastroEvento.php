@@ -1,5 +1,7 @@
 <?php
 
+require_once '../model/Evento.php';
+
 $nome=$_POST['nome'];
 $dataInicio=$_POST['dataInicio'];
 $dataTermino=$_POST['dataTermino'];

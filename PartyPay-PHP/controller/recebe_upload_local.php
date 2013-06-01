@@ -1,9 +1,7 @@
 
 
 <?php
-include "restrito.php";
-include '../model/class.Post.php';
-include '../model/class.User.php';
+
 require 'canvas.php';
 // Pasta onde o arquivo vai ser salvo
 

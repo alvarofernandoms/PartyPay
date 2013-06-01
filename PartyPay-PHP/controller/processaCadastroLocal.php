@@ -1,4 +1,5 @@
 <?php
+require_once '../model/Local.php';
 
     $endereço=$_POST['endereco'];
     //$coordenadaGoogleMaps = $_POST['coordenadas'];
