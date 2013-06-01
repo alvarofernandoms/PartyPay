@@ -22,65 +22,65 @@
 		<section class="container">
     		<h3>Local</h3>
 			<div class="row">
-				<form class="form-horizontal" method="post" action="controller/processaCadastroLocal.php">
+				<form class="form-horizontal" method="post" action="controller/processaCadastroLocal.php" enctype="multipart/form-data">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Nome</label>
 				    <div class="controls">
-				      <input type="text" name="nome" placeholder="Nome do Local">
+				      <input type="text" name="nome" placeholder="Nome do Local" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Fotos</label>
 				    <div class="controls">
-				      <input type="file" name="estado" placeholder="Estado">
+				      <input type="file" name="arquivo" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="endereco">Endere&ccedil;o</label>
 				    <div class="controls">
-				      <input type="text" name="endereco" placeholder="Endere&ccedil;o">
+				      <input type="text" name="endereco" placeholder="Endere&ccedil;o" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Numero</label>
 				    <div class="controls">
-				      <input type="text" name="numero" placeholder="Numero">
+				      <input type="text" name="numero" placeholder="Numero" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Complemento</label>
 				    <div class="controls">
-				      <input type="text" name="complemento" placeholder="Complemento">
+				      <input type="text" name="complemento" placeholder="Complemento" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Bairro</label>
 				    <div class="controls">
-				      <input type="text" name="bairro" placeholder="Bairro">
+				      <input type="text" name="bairro" placeholder="Bairro" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Cidade</label>
 				    <div class="controls">
-				      <input type="text" name="cidade" placeholder="Cidade">
+				      <input type="text" name="cidade" placeholder="Cidade" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">CEP</label>
 				    <div class="controls">
-				      <input type="text" name="cep" placeholder="CEP">
+				      <input type="text" name="cep" placeholder="CEP" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Pa&iacute;s</label>
 				    <div class="controls">
-				      <input type="text" name="pais" placeholder="Pa&iacute;s">
+				      <input type="text" name="pais" placeholder="Pa&iacute;s" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Estado</label>
 				    <div class="controls">
-				      <input type="text" name="estado" placeholder="Estado">
+				      <input type="text" name="estado" placeholder="Estado" requised>
 				    </div>
 				  </div>
 				  <div class="control-group">
