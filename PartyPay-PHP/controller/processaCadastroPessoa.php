@@ -31,7 +31,7 @@ $pessoa=new Pessoa();
 $pessoa->setCodConfirmacao($codigo);
 $pessoa->persist();
 
-header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
+//header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
 
     
 

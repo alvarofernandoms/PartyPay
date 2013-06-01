@@ -4,21 +4,21 @@ require_once 'DAC/EventoDAC.php';
 
 class Evento {
 
-    private $nome;
+    private $nome;//nome do evento
     private $dataCriacao;
     private $dataInicio;
     private $dataTermino;
-    private $imagem;
-    private $preçoMasc;
+    private $imagem;//input do tipo file name arquivo
+    private $precoMasc;
     private $precoFem;
-    private $organizador;
-    private $local;
+    private $organizador;//nao precisa
+    private $local;//nao precisa
     private $facebookEventPage;
     private $descricao;
     private $numeroIngressos;
     private $horaInicio;
     private $horaTermino;
-    private $miniatura;
+    private $miniatura;//nao precisa
     
     public function getMiniatura() {
         return $this->miniatura;
@@ -115,12 +115,12 @@ class Evento {
         $this->dataTermino = $dataTermino;
     }
 
-    public function getPreçoMasc() {
-        return $this->preçoMasc;
+    public function getPrecoMasc() {
+        return $this->precoMasc;
     }
 
-    public function setPreçoMasc($preçoMasc) {
-        $this->preçoMasc = $preçoMasc;
+    public function setPrecoMasc($precoMasc) {
+        $this->precoMasc = $precoMasc;
     }
 
     public function getPrecoFem() {
