@@ -9,7 +9,7 @@ $email=  addslashes($_POST['email']);
 $password=  addslashes($_POST['password']);
 $sexo=  addslashes($_POST['sexo']);
 
-
+$strList="\\\'\"&\n\r<>";
 addcslashes($primeiroNome,$strList);
 addcslashes($sobreNome,$strList);
 addcslashes($email,$strList);
