@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="view/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
 		<header>
@@ -16,7 +15,7 @@
 			      <li><a href="#">Sobre</a></li>
 			      <li><a href="#">Eventos</a></li>
 			    </ul>
-			    <a class="btn btn-success" href="cadastrarEvento.php">Divulgar seu evento</a>
+			    <a class="btn btn-success" href="cadastrar.php">Divulgar seu evento</a>
 			  </div>
 			</div>
 			<div id="slider" class="container">
