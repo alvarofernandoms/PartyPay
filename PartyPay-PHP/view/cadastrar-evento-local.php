@@ -1,9 +1,10 @@
 <html>
   <head>
     <title>Novo evento - Party Pay</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="view/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
 		<header>
@@ -25,61 +26,61 @@
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Nome</label>
 				    <div class="controls">
-				      <input type="text" id="nome" placeholder="Nome do Local">
+				      <input type="text" name="nome" placeholder="Nome do Local">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Fotos</label>
 				    <div class="controls">
-				      <input type="file" id="estado" placeholder="Estado">
+				      <input type="file" name="estado" placeholder="Estado">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="endereco">Endere&ccedil;o</label>
 				    <div class="controls">
-				      <input type="text" id="endereco" placeholder="Endere&ccedil;o">
+				      <input type="text" name="endereco" placeholder="Endere&ccedil;o">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Numero</label>
 				    <div class="controls">
-				      <input type="text" id="numero" placeholder="Numero">
+				      <input type="text" name="numero" placeholder="Numero">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Complemento</label>
 				    <div class="controls">
-				      <input type="text" id="complemento" placeholder="Complemento">
+				      <input type="text" name="complemento" placeholder="Complemento">
 				    </div>
 				  </div>
 				  <div class="control-group">
-				    <label class="control-label" for="numero">Bairo</label>
+				    <label class="control-label" for="numero">Bairro</label>
 				    <div class="controls">
-				      <input type="text" id="bairo" placeholder="Bairo">
+				      <input type="text" name="bairro" placeholder="Bairro">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Cidade</label>
 				    <div class="controls">
-				      <input type="text" id="cidade" placeholder="Cidade">
+				      <input type="text" name="cidade" placeholder="Cidade">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">CEP</label>
 				    <div class="controls">
-				      <input type="text" id="cep" placeholder="CEP">
+				      <input type="text" name="cep" placeholder="CEP">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Pa&iacute;s</label>
 				    <div class="controls">
-				      <input type="text" id="pais" placeholder="Pa&iacute;s">
+				      <input type="text" name="pais" placeholder="Pa&iacute;s">
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Estado</label>
 				    <div class="controls">
-				      <input type="text" id="estado" placeholder="Estado">
+				      <input type="text" name="estado" placeholder="Estado">
 				    </div>
 				  </div>
 				  <div class="control-group">
@@ -94,5 +95,6 @@
 		</footer>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="view/js/bootstrap.min.js"></script>
+    <script src="view/js/bootstrap-responsive.min.js"></script>
   </body>
 </html>
