@@ -16,7 +16,6 @@ class Local {
     function __construct() {
         
     }
-
     
     public function getNumero() {
         return $this->numero;
