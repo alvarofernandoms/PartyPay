@@ -33,7 +33,7 @@
     $local->setNumero($numero);
     $local->setPais($pais);
     
-    
+    $id=$local->persist();
     
     
 
