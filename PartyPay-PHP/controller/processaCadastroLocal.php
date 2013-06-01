@@ -10,6 +10,7 @@
     $cidade=$_POST['cidade'];
     $cep=$_POST["cep"];
     $pais=$_POST['pais'];
+    $estado=$_POST['estado'];
     
     
     $strList="\\\'\"&\n\r<>\b";
@@ -21,8 +22,11 @@
     addcslashes($cidade,$strList);
     addcslashes($cidade,$strList);
     addcslashes($pais,$strList);
+    addcslashes($estado,$strList);
     
     $local= new Local();
+    
+    require_once "recebe_upload.php";
     
     $local->setBairro($bairro);
     $local->setCep($cep);
@@ -32,6 +36,7 @@
     $local->setNome($nome);
     $local->setNumero($numero);
     $local->setPais($pais);
+    $local->setEstado($estado);
     
     $_SESSION['localid']=$local->persist();
     
