@@ -11,7 +11,7 @@
 			  <div class="navbar-inner">
 			    <a class="brand" href="#"><img src="view/img/marca-mini.png" alt="" /></a>
 			    <ul class="nav">
-			      <li class="active"><a href="#">Home</a></li>
+			      <li class="active"><a href="index.php">Home</a></li>
 			      <li><a href="#">Sobre</a></li>
 			      <li><a href="#">Eventos</a></li>
 			    </ul>
@@ -21,7 +21,7 @@
 		<section class="container">
     		<h3>Local</h3>
 			<div class="row">
-				<form class="form-horizontal" method="get" action="controller/processaCadastroLocal.php">
+				<form class="form-horizontal" method="post" action="controller/processaCadastroLocal.php">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Nome</label>
 				    <div class="controls">
@@ -29,11 +29,17 @@
 				    </div>
 				  </div>
 				  <div class="control-group">
+				    <label class="control-label" for="numero">Fotos</label>
+				    <div class="controls">
+				      <input type="file" id="estado" placeholder="Estado">
+				    </div>
+				  </div>
+				  <div class="control-group">
 				    <label class="control-label" for="endereco">Endere&ccedil;o</label>
 				    <div class="controls">
 				      <input type="text" id="endereco" placeholder="Endere&ccedil;o">
 				    </div>
-				</div>
+				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Numero</label>
 				    <div class="controls">
@@ -76,7 +82,11 @@
 				      <input type="text" id="estado" placeholder="Estado">
 				    </div>
 				  </div>
-				  <button type="submit" class="btn btn-success">Enviar</button>
+				  <div class="control-group">
+				    <div class="controls">
+				      <button type="submit" class="btn btn-success">Enviar</button>
+				    </div>
+				  </div>
 				</form>
     		</div>
 		</section>
