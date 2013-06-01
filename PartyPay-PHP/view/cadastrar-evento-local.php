@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <title>Novo evento - Party Pay</title>
