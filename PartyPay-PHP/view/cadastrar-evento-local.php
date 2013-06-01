@@ -44,7 +44,7 @@
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Numero</label>
 				    <div class="controls">
-				      <input type="text" name="numero" placeholder="Numero" required>
+				      <input type="text" id="numero" name="numero" placeholder="Numero" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
@@ -68,7 +68,7 @@
 				  <div class="control-group">
 				    <label class="control-label" for="numero">CEP</label>
 				    <div class="controls">
-				      <input type="text" name="cep" placeholder="CEP" required>
+				      <input type="text" id="cep" name="cep" placeholder="CEP" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
@@ -96,5 +96,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="view/js/bootstrap.min.js"></script>
     <script src="view/js/bootstrap-responsive.min.js"></script>
+    <script src="view/js/jquery.maskedinput.min.js"></script>
+
   </body>
 </html>
