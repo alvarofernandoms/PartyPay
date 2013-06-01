@@ -14,7 +14,17 @@ class Local {
     private $id;
     private $nome;
     private $estado;
+    private $miniatura;
     
+    public function getMiniatura() {
+        return $this->miniatura;
+    }
+
+    public function setMiniatura($miniatura) {
+        $this->miniatura = $miniatura;
+    }
+
+        
     public function getEstado() {
         return $this->estado;
     }
