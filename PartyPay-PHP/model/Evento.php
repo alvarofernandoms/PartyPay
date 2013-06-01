@@ -1,16 +1,7 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Evento
- *
- * @author Andre
- */
 require_once 'DAC/EventoDAC.php';
+
 class Evento {
 
     private $nome;
@@ -24,7 +15,7 @@ class Evento {
     private $local;
     private $facebookEventPage;
     private $descricao;
-    
+
     public function getDataCriacao() {
         return $this->dataCriacao;
     }
@@ -49,7 +40,7 @@ class Evento {
         $this->descricao = $descricao;
     }
 
-        public function getFacebookEventPage() {
+    public function getFacebookEventPage() {
         return $this->facebookEventPage;
     }
 
@@ -57,7 +48,6 @@ class Evento {
         $this->facebookEventPage = $facebookEventPage;
     }
 
-        
     public function getNome() {
         return $this->nome;
     }
@@ -121,7 +111,7 @@ class Evento {
     public function setLocal($local) {
         $this->local = $local;
     }
-    
+
     public function persist() {
         EventoDAC::persist($this);
     }
@@ -133,7 +123,6 @@ class Evento {
     public function delete() {
         EventoDAC::delete($this);
     }
-
 
 }
 

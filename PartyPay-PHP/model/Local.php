@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 require_once 'DAC/LocalDAC.php';
 class Local {
