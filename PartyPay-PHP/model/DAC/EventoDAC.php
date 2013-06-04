@@ -21,6 +21,10 @@ class EventoDAC {
         $sql.=$evento->getFacebookEventPage().", NULL,";
         $sql.=$evento->getDataCriacao().",";
         $sql.=$evento->getDescricao().")";
+        $sql.=$evento->getnumeroIngressos().",";
+        $sql.=$evento->gethoraInicio().",";
+        $sql.=$evento->gethoraTermino().",";
+        $sql.=$evento->getminiatura().",";
         
         mysql_query($sql) or die(mysql_error());
         mysql_close($cn);
