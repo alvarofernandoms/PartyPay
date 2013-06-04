@@ -8,21 +8,21 @@ class PessoaDAC {
         $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `id`, `senha`,`sexo`,emailConfirmado,codConfirmacao) VALUES 
             ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','NULL','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."');";     
         mysql_query($sql)or die(mysql_error()."pessoaDAC - Persist");
-        mysql_close($cn);
+        mysql_close($conexao);
     }
     
     public static function updateInfo(Pessoa $pessoa,$atributo,$atributoNovo){
        include_once 'conexao.php';
         $sql="UPDATE `pessoas` SET `$atributo`=$atributoNovo WHERE id=".$pessoa->getId();
         mysql_query($sql)or die(mysql_error());
-        mysql_close($cn);
+        mysql_close($conexao);
     }
     
     public static function delete($pessoa){
         include_once 'conexao.php';
         $sql="DELETE FROM `pessoas` WHERE id=".$pessoa->getId();
         mysql_query($sql)or die(mysql_error());
-        mysql_close($cn);
+        mysql_close($conexao);
     }
     
     public static function recupere($pessoa,$id){
@@ -30,7 +30,7 @@ class PessoaDAC {
         $sql="SELECT * FROM pessoas WHERE id=$id";
         $resultado=mysql_query($sql) or die(mysql_error());
         $row=mysql_fetch_array($resultado);
-        mysql_close($cn);
+        mysql_close($conexao);
 
         if (mysql_num_rows($resultado)==1){
            $pessoa->setPrimeiroNome($row['primeiroNome']);

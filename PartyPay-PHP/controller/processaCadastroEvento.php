@@ -36,8 +36,8 @@ $evento->setFacebookEventPage($facebookEventPage);
 $evento->setDescricao($descricao);
 $evento->setOrganizador($organizadorId);
 
-$_SESSION["eventoid"]=$evento->persist();
-
-header("Location:../cadastrar-evento-local.php");
+//$_SESSION["eventoid"]=$evento->persist();
+echo $evento->persist();
+//header("Location:../cadastrar-evento-local.php");
 
 ?>

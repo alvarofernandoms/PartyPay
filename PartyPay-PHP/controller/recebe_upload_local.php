@@ -52,8 +52,8 @@ exit; // Para a execução do script
  
 
 // Faz a verificação da extensão do arquivo
-
-$extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
+$var=explode('.', $_FILES['arquivo']['name']);
+$extensao = strtolower(end($var));
 
 if (array_search($extensao, $_UP['extensoes']) === false) {
 

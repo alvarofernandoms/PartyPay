@@ -1,6 +1,5 @@
 <?php
 
-require_once 'C:/xampp-portable/htdocs/PartyPay/PartyPay-PHP/model/Local.php';
 
 class LocalDAC {
     
@@ -23,7 +22,7 @@ class LocalDAC {
                 . $local->getEstado() . "','"
                 .$local->getMiniatura()."')";
         mysql_query($sql) or die(mysql_error());
-        mysql_close($cn);
+        mysql_close($conexao);
         return mysql_insert_id();
     }
 
@@ -31,14 +30,14 @@ class LocalDAC {
         include_once 'conexao.php';
         $sql = "UPDATE `locais` SET `$atributo`=$atributoNovo WHERE id=" . $local->getId();
         mysql_query($sql) or die(mysql_error());
-        mysql_close($cn);
+        mysql_close($conexao);
     }
 
     public static function delete(Local $local) {
         include_once 'conexao.php';
         $sql = "DELETE FROM `locais` WHERE id=" . $local->getId();
         mysql_query($sql) or die(mysql_error());
-        mysql_close($cn);
+        mysql_close($conexao);
     }
 
 }

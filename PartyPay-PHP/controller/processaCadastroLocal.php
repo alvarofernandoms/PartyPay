@@ -1,5 +1,6 @@
 <?php
 require_once '../model/Local.php';
+require_once '../model/DAC/EventoLocalDAC.php';
 
 
     $endereco=$_POST['endereco'];
