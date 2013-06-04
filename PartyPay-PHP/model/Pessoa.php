@@ -167,7 +167,7 @@ class Pessoa {
     }
 
     public function persist() {
-        PessoaDAC::persist($this);
+        return PessoaDAC::persist($this);
     }
 
     public function updateInfo($atributo, $novoValor) {

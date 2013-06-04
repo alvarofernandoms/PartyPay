@@ -13,7 +13,7 @@ class EventoDAC {
         $sql.=$evento->getNome().",";
         $sql.=$evento->getDataInicio().",";
         $sql.=$evento->getDataTermino().",";
-        $sql.=$evento->getImage().",";
+        $sql.=$evento->getImagem().",";
         $sql.=$evento->getPrecoMasc().",";
         $sql.=$evento->getPrecoFem().",";
         $sql.=$evento->getOrganizador()->getId().",";
@@ -21,13 +21,15 @@ class EventoDAC {
         $sql.=$evento->getFacebookEventPage().", NULL,";
         $sql.=$evento->getDataCriacao().",";
         $sql.=$evento->getDescricao().")";
-        $sql.=$evento->getnumeroIngressos().",";
-        $sql.=$evento->gethoraInicio().",";
-        $sql.=$evento->gethoraTermino().",";
-        $sql.=$evento->getminiatura().",";
+        $sql.=$evento->getNumeroIngressos().",";
+        $sql.=$evento->getHoraInicio().",";
+        $sql.=$evento->getHoraTermino().",";
+        $sql.=$evento->getMiniatura().")";
         
         mysql_query($sql) or die(mysql_error());
+        
         mysql_close($cn);
+        return mysql_insert_id();
     }
     
      public static function updateInfo($evento,$atributo,$atributoNovo){

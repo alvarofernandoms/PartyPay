@@ -45,7 +45,7 @@
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Banner</label>
 				    <div class="controls">
-				      <input type="file" name="imagem" required>
+				      <input type="file" name="arquivo" required>
 				    </div>
 				  </div>
 				  <div class="control-group">

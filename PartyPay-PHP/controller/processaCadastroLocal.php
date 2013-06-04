@@ -1,6 +1,7 @@
 <?php
 require_once '../model/Local.php';
 
+
     $endereco=$_POST['endereco'];
     //$coordenadaGoogleMaps = $_POST['coordenadas'];
     //$foto=
@@ -12,6 +13,7 @@ require_once '../model/Local.php';
     $cep=$_POST["cep"];
     $pais=$_POST['pais'];
     $estado=$_POST['estado'];
+    $idEvento=$_SESSION['eventoid'];
     
     
     $strList="\\\'\"&\n\r<>\b";
@@ -39,8 +41,10 @@ require_once '../model/Local.php';
     $local->setPais($pais);
     $local->setEstado($estado);
     
-    $_SESSION['localid']=$local->persist();
+    $localId=$local->persist();
     
-    header("Location:../view/cadastroEvento.php");
+    EventoLocal::persist($idEvento, $localId);
+    
+    echo "cadastro efetuado";
  
 ?>

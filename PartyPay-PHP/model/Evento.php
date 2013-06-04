@@ -148,7 +148,7 @@ class Evento {
     }
 
     public function persist() {
-        EventoDAC::persist($this);
+        return EventoDAC::persist($this);
     }
 
     public function updateInfo($atributo, $novoValor) {

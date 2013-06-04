@@ -23,8 +23,8 @@ class LocalDAC {
                 . $local->getEstado() . "','"
                 .$local->getMiniatura()."')";
         mysql_query($sql) or die(mysql_error());
-        return mysql_insert_id();
         mysql_close($cn);
+        return mysql_insert_id();
     }
 
     public static function updateInfo(Local $local, $atributo, $atributoNovo) {

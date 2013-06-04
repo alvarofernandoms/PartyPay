@@ -127,7 +127,7 @@ class Local {
     }
 
     public function persist(){
-        LocalDAC::persist($this);
+        return LocalDAC::persist($this);
     }
     
     public function updateInfo($atributo,$novoValor){

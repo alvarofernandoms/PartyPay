@@ -2,6 +2,10 @@
 
 require_once '../model/Evento.php';
 
+session_start();
+
+
+
 $nome=$_POST['nome'];
 $dataInicio=$_POST['dataInicio'];
 $dataTermino=$_POST['dataTermino'];
@@ -29,8 +33,8 @@ $evento->setPrecoMasc($precoMasc);
 $evento->setFacebookEventPage($facebookEventPage);
 $evento->setDescricao($descricao);
 
+$_SESSION["eventoid"]=$evento->persist();
 
-
-
+header("Location:../cadastrar-evento-local.php");
 
 ?>
