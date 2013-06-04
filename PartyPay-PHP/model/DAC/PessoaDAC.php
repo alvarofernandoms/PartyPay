@@ -8,7 +8,11 @@ class PessoaDAC {
         $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `id`, `senha`,`sexo`,emailConfirmado,codConfirmacao) VALUES 
             ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','NULL','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."');";     
         mysql_query($sql)or die(mysql_error()."pessoaDAC - Persist");
+         $RES=mysql_query("SELECT LAST_INSERT_ID()");
+        $mat=mysql_fetch_array($RES);
         mysql_close($conexao);
+        
+        return $mat['0'];
     }
     
     public static function updateInfo(Pessoa $pessoa,$atributo,$atributoNovo){

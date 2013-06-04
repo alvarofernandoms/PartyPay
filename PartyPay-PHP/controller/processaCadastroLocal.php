@@ -2,7 +2,7 @@
 require_once '../model/Local.php';
 require_once '../model/DAC/EventoLocalDAC.php';
 
-
+session_start();
     $endereco=$_POST['endereco'];
     //$coordenadaGoogleMaps = $_POST['coordenadas'];
     //$foto=

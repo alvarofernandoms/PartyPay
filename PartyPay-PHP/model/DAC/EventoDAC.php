@@ -27,8 +27,12 @@ class EventoDAC {
         
         mysql_query($sql) or die(mysql_error());
         
+       
+        $RES=mysql_query("SELECT LAST_INSERT_ID()");
+        $mat=mysql_fetch_array($RES);
         mysql_close($conexao);
-        return mysql_insert_id();
+        
+        return $mat['0'];
     }
     
      public static function updateInfo($evento,$atributo,$atributoNovo){
