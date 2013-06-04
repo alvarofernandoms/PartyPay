@@ -2,13 +2,14 @@
 
 class EventoDAC {
     
-    public static function persist($evento){
+    public static function persist(Evento $evento){
         include_once 'conexao.php';
         $sql="INSERT INTO `eventos`(`nome`, 
             `dataInicio`, `dataTermino`, `imagem`,
             `precoMasc`, `precoFem`, `organizadorID`,
             `localID`, `facebookEventPage`, `id`,
-            `dataCriacao`, `descricao`) VALUES (";
+            `dataCriacao`, `descricao`, `numeroIngressos`,
+            `horaInicio`, `horaTermino`, `miniatura`,) VALUES (";
         $sql.=$evento->getNome().",";
         $sql.=$evento->getDataInicio().",";
         $sql.=$evento->getDataTermino().",";
