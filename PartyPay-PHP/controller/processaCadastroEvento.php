@@ -3,6 +3,7 @@
 require_once '../model/Evento.php';
 
 session_start();
+$_SESSION['userId']="3";
 
 
 
@@ -16,6 +17,7 @@ $descricao=$_POST['descricao'];
 $numeroIngressos=$_POST['numeroIngressos'];
 $horaInicio=$_POST['horaInicio'];
 $horaTermino=$_POST['horaTermino'];
+$organizadorId=$_SESSION['userId'];
 
 $evento= new Evento();
 
@@ -32,6 +34,7 @@ $evento->setPrecoFem($precoFem);
 $evento->setPrecoMasc($precoMasc);
 $evento->setFacebookEventPage($facebookEventPage);
 $evento->setDescricao($descricao);
+$evento->setOrganizador($organizadorId);
 
 $_SESSION["eventoid"]=$evento->persist();
 

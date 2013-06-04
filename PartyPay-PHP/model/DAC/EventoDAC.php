@@ -16,7 +16,7 @@ class EventoDAC {
         $sql.=$evento->getImagem().",";
         $sql.=$evento->getPrecoMasc().",";
         $sql.=$evento->getPrecoFem().",";
-        $sql.=$evento->getOrganizador()->getId().",";
+        $sql.=$evento->getOrganizador().",";
         $sql.=$evento->getLocal()->getId().",";
         $sql.=$evento->getFacebookEventPage().", NULL,";
         $sql.=$evento->getDataCriacao().",";
