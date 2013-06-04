@@ -1,10 +1,12 @@
 <html>
   <head>
-    <title>Novo evento - Party Pay</title>
-    <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0">
+    <title>Party Pay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="view/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="view/css/style.css" rel="stylesheet" media="screen">
+  </head>ink href="view/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
 		<header>
