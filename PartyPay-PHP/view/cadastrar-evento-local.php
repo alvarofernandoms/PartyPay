@@ -32,7 +32,7 @@
 				    </div>
 				  </div>
 				  <div class="control-group">
-				    <label class="control-label" for="numero">Fotos</label>
+				    <label class="control-label" for="fotos">Fotos</label>
 				    <div class="controls">
 				      <input type="file" name="arquivo" required>
 				    </div>
