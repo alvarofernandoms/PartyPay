@@ -54,9 +54,9 @@
 				    <label class="control-label" for="nome">Sexo</label>
 				    <div class="controls">
 				    	<div class="btn-group" data-toggle="buttons-radio">
-						  <button type="button" class="btn btn-primary" name="sexo" value="masculino">Masculino</button>
-						  <button type="button" class="btn btn-primary" name="sexo" value="feminino">Feminino</button>
-					  	</div>
+							<label>Masculino</label><input type="radio" name="sexo" value="masculino" /><br />
+                        	<label>Feminino</label><input type="radio" name="sexo" value="feminino" /><br />
+                        </div>
 					</div>
 				  </div>
 

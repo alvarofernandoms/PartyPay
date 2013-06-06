@@ -5,8 +5,8 @@ class PessoaDAC {
     public static function persist($pessoa){
         
         include_once 'conexao.php';
-        $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `id`, `senha`,`sexo`,emailConfirmado,codConfirmacao) VALUES 
-            ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','NULL','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."');";     
+        $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `senha`,`sexo`,emailConfirmado,codConfirmacao) VALUES 
+            ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."');";     
         mysql_query($sql)or die(mysql_error()."pessoaDAC - Persist");
          $RES=mysql_query("SELECT LAST_INSERT_ID()");
         $mat=mysql_fetch_array($RES);
