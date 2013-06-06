@@ -44,7 +44,7 @@ session_start();
     
     $localId=$local->persist();
     
-    EventoLocal::persist($idEvento, $localId) or die("o erro esta aqui");
+    EventoLocal::persist($idEvento, $localId);
     
     echo "cadastro efetuado";
  

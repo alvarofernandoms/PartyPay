@@ -16,6 +16,13 @@ addcslashes($email,$strList);
 addcslashes($password,$strList);
 addcslashes($sexo,$strList);
 
+$validator= new ValidaCadastro();
+
+$validator->validarEmail($email);
+//inclua aqui o resto das chamadas dos metodos de validaçao;
+
+$mensagem=$validator->msg;
+echo "<script>alert('$mensagem');</script>";
 
 
 $codigo=gerarCodigoConfirmaçao();

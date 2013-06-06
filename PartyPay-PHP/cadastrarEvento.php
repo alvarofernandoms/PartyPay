@@ -3,6 +3,6 @@
 
 */
 
-header("Location:view/cadastroEvento.php");
+require_once "view/cadastrarEvento.php";
 
 ?>
