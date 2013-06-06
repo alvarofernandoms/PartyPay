@@ -75,6 +75,29 @@
 				      <input type="text" id="vagas" name="numeroIngressos" placeholder="N&uacute;mero de vagas" required>
 				    </div>
 				  </div>
+
+				  <div class="control-group">
+				    <label class="control-label" for="numero">Classifica&ccedil;&atilde;o</label>
+				    <div class="controls">
+				    	<select name="classificacao">
+						  <option>Livre</option>
+						  <option>10</option>
+						  <option>12</option>
+						  <option>14</option>
+						  <option>16</option>
+						  <option>18</option>
+						</select>
+				    </div>
+				  </div>
+
+				  <div class="control-group">
+				    <label class="control-label" for="numero">Hora de T&eacute;rmino</label>
+				    <div class="controls">
+				    	<select name="horaTermino">
+						  <option>00</option>
+						  <option>01</option>
+						  <option>02</option>
+
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Hora de Inc&iacute;o</label>
 				    <div class="controls">
@@ -168,7 +191,8 @@
 
 						</select>
 				    </div>
-				  </div><div class="control-group">
+				  </div>
+				  <div class="control-group">
 				    <label class="control-label" for="numero">Hora de T&eacute;rmino</label>
 				    <div class="controls">
 				    	<select name="horaTermino">
