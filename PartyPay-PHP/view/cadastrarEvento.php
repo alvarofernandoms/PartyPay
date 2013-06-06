@@ -77,7 +77,7 @@
 				  </div>
 
 				  <div class="control-group">
-				    <label class="control-label" for="numero">Classifica&ccedil;&atilde;o</label>
+				    <label class="control-label" for="classificacao">Classifica&ccedil;&atilde;o</label>
 				    <div class="controls">
 				    	<select name="classificacao">
 						  <option>Livre</option>
@@ -89,15 +89,6 @@
 						</select>
 				    </div>
 				  </div>
-
-				  <div class="control-group">
-				    <label class="control-label" for="numero">Hora de T&eacute;rmino</label>
-				    <div class="controls">
-				    	<select name="horaTermino">
-						  <option>00</option>
-						  <option>01</option>
-						  <option>02</option>
-
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Hora de Inc&iacute;o</label>
 				    <div class="controls">
