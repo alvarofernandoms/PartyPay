@@ -19,7 +19,18 @@ class Evento {
     private $horaInicio;
     private $horaTermino;
     private $miniatura;//nao precisa
+    private $classificacao;
     
+    public function getClassificacao() {
+        return $this->classificacao;
+    }
+
+    public function setClassificacao($classificacao) {
+        $this->classificacao = $classificacao;
+    }
+
+    
+
     public function getMiniatura() {
         return $this->miniatura;
     }

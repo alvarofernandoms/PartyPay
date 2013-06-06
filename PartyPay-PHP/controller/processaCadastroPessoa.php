@@ -22,7 +22,7 @@ $codigo=gerarCodigoConfirmaçao();
 $pessoa=new Pessoa();
 
     $pessoa->setEmail($email);
-    $pessoa->setPrimeiroNome();
+    $pessoa->setPrimeiroNome($primeiroNome);
     $pessoa->setSobreNome($sobreNome);
     $pessoa->setPassword(md5($password));//criptografia md5 para o password
     $pessoa->setSexo($sexo);
@@ -30,7 +30,7 @@ $pessoa=new Pessoa();
 
 $pessoa->setCodConfirmacao($codigo);
 $pessoa->persist();
-
+echo "efetuado com sucesso";
 //header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
 
     

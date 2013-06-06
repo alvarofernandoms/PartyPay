@@ -18,7 +18,7 @@ $numeroIngressos=$_POST['numeroIngressos'];
 $horaInicio=$_POST['horaInicio'];
 $horaTermino=$_POST['horaTermino'];
 $organizadorId=$_SESSION['userId'];
-
+$classificacao=$_POST['classificacao'];
 $evento= new Evento();
 
 require_once 'recebe_upload_evento.php';
@@ -35,6 +35,7 @@ $evento->setPrecoMasc($precoMasc);
 $evento->setFacebookEventPage($facebookEventPage);
 $evento->setDescricao($descricao);
 $evento->setOrganizador($organizadorId);
+$evento->setClassificacao($classificacao);
 
 $_SESSION['eventoid']=$evento->persist();
 header("Location:../cadastrar-evento-local.php");

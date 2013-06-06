@@ -9,7 +9,7 @@ class EventoDAC {
             `precoMasc`, `precoFem`, `organizadorID`,
             `facebookEventPage`, `id`,
             `dataCriacao`, `descricao`, `numeroIngressos`,
-            `horaInicio`, `horaTermino`, `miniatura`) VALUES ('";
+            `horaInicio`, `horaTermino`, `miniatura`,`classificacao`) VALUES ('";
         $sql.=$evento->getNome()."','";
         $sql.=$evento->getDataInicio()."','";
         $sql.=$evento->getDataTermino()."','";
@@ -23,7 +23,8 @@ class EventoDAC {
         $sql.=$evento->getNumeroIngressos()."','";
         $sql.=$evento->getHoraInicio()."','";
         $sql.=$evento->getHoraTermino()."','";
-        $sql.=$evento->getMiniatura()."');";
+        $sql.=$evento->getMiniatura()."','";
+        $sql.=$evento->getClassificacao()."');";
         
         mysql_query($sql) or die(mysql_error());
         
