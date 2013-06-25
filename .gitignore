@@ -1,5 +1,7 @@
 # Para ignorar a pasta "private" criada pelo NetBeans. #
 
+PartyPay/PartyPay-PHP/nbproject/private/
+PartyPay-PHP/nbproject/private/
 ./PartyPay-PHP/nbproject/private/private.xml
 ./PartyPay-PHP/nbproject/private/private.properties
 
