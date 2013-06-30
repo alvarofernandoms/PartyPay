@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   `precoMasc` float NOT NULL,
   `precoFem` float NOT NULL,
   `organizadorID` int(11) NOT NULL,
-  `localID` int(11) NOT NULL,
+  `localID` int(11) DEFAULT NULL,
   `facebookEventPage` varchar(50) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dataCriacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   `horaInicio` time NOT NULL,
   `horaTermino` time NOT NULL,
   `miniatura` varchar(50) NOT NULL,
+  `classificacao` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
