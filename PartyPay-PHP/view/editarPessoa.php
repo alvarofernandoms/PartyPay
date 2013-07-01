@@ -1,40 +1,48 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php'); 
+
+	$primeiroNome = $_GET["primeiroNome"];
+	$sobreNome = $_GET["sobreNome"];
+	$email = $_GET["email"];
+	$sexo = $_GET["sexo"];
+	$cpf = $_GET["cpf"];
+	$telefoneContato = $_GET["telefoneContato"];
+
+?>
 		<section class="container">
-    		<h3>Novo Usu&aacute;rio</h3>
+    		<h3>Editar Cadastro</h3>
 			<div class="row">
 				<form class="form-horizontal" method="post" action="controller/processaCadastroPessoa.php" enctype="multipart/form-data">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Primeiro Nome</label>
 				    <div class="controls">
-				      <input type="text" name="primeiroNome" placeholder="Primeiro nome" required>
+				      <input type="text" name="primeiroNome" placeholder="Primeiro nome" value="<?php echo $primeiroNome; ?>" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Sobrenome</label>
 				    <div class="controls">
-				      <input type="text" name="sobreNome" placeholder="Sobrenome" required>
+				      <input type="text" name="sobreNome" placeholder="Sobrenome"  value="<?php echo $sobreNome; ?>" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="nome">email</label>
 				    <div class="controls">
-				      <input type="email" name="email" placeholder="email" required>
-				    </div>
+				      <span class="input-xlarge uneditable-input"><?php echo $email; ?></span></div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Senha</label>
 				    <div class="controls">
-				      <input type="password" name="password" placeholder="senha" required>
+				      <a href="#">Mudar senha</a>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Sexo</label>
+
 				    <div class="controls">
-				    	<div class="btn-group" data-toggle="buttons-radio">
-							<label>Masculino</label><input type="radio" name="sexo" value="masculino" /><br />
-                        	<label>Feminino</label><input type="radio" name="sexo" value="feminino" /><br />
-                        </div>
-					</div>
+				    	<select name="sexo">
+						  <option>Feminino</option>
+						  <option>Masculino</option>
+						</select>
 				  </div>
 
 				<!-- cod confirmação -->
@@ -42,13 +50,13 @@
 				  <div class="control-group">
 				    <label class="control-label" for="nome">CPF</label>
 				    <div class="controls">
-				      <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
+				      <input type="text" id="cpf" name="cpf" placeholder="CPF" value="<?php echo $cpf; ?>" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Telefone de Contato</label>
 				    <div class="controls">
-				      <input type="text" id="telefone" name="telefoneContato" placeholder="Telefone de Contato" required>
+				      <input type="text" id="telefone" name="telefoneContato" placeholder="Telefone de Contato" value="<?php echo $telefoneContato; ?>" required>
 				    </div>
 				  </div>
 
