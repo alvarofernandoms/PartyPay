@@ -5,8 +5,8 @@ class PessoaDAC {
     public static function persist($pessoa){
         
         include_once 'conexao.php';
-        $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `senha`,`sexo`,emailConfirmado,codConfirmacao) VALUES 
-            ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."');";     
+        $sql="INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `senha`,`sexo`, `emailConfirmado` , `codConfirmacao`, `cpf`, `telefoneContato`) VALUES 
+            ('".$pessoa->getPrimeiroNome()."','".$pessoa->getSobreNome()."','".$pessoa->getEmail()."','".$pessoa->getPassword()."','".$pessoa->getSexo()."','0','".$pessoa->getCodConfirmacao()."','".$pessoa->getCpf()."','".$pessoa->getTelefoneContato()."');";     
         mysql_query($sql)or die(mysql_error()."pessoaDAC - Persist");
          $RES=mysql_query("SELECT LAST_INSERT_ID()");
         $mat=mysql_fetch_array($RES);
@@ -40,11 +40,10 @@ class PessoaDAC {
            $pessoa->setPrimeiroNome($row['primeiroNome']);
            $pessoa->setSobreNome($row['SobreNome']);
            $pessoa->setEmail($row['email']);
-           $pessoa->setTelefone($row['telefone']);
-           $pessoa->setDataNasc($row['dataNasc']);
-           $pessoa->setRg($row['rg']);
-           $pessoa->setImage($row['image']);
+           $pessoa->setSexo($row['sexo']);
+           $pessoa->setCpf($row['cpf']);
            $pessoa->setId($row['id']);
+           $pessoa->setTelefoneContato($row['telefoneContato']);
            return 1;
         }else{
             return NULL;

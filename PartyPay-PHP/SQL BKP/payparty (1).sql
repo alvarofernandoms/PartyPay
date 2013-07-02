@@ -228,6 +228,8 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
   `sexo` varchar(50) NOT NULL,
   `emailConfirmado` tinyint(1) NOT NULL,
   `codConfirmacao` varchar(50) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `telefoneContato` varchar(50) NOT NULL,   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -235,8 +237,8 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
 -- Extraindo dados da tabela `pessoas`
 --
 
-INSERT INTO `pessoas` (`primeiroNome`, `sobreNome`, `email`, `id`, `senha`, `sexo`, `emailConfirmado`, `codConfirmacao`) VALUES
-('Andre', 'Ferraz', '234', 3, '202cb962ac59075b964b07152d234b70', 'Masculino', 0, '');
+INSERT INTO `pessoas` (`primeiroNome`, `sobreNome`, `email`, `id`, `senha`, `sexo`, `emailConfirmado`, `codConfirmacao`, `cpf`, `telefone`) VALUES
+('Andre', 'Ferraz', '234', 3, '202cb962ac59075b964b07152d234b70', 'Masculino', 0, '', '111.111.111-11', '(11) 1111-1111');
 
 -- --------------------------------------------------------
 
