@@ -18,9 +18,8 @@ addcslashes($password,$strList);
 addcslashes($sexo,$strList);
 
 //Validação comentada para rodar no localhost
-//$validator= new ValidaCadastro();
-
-//$validator->validarEmail($email);
+$validator= new ValidaCadastro();
+$validator->validarEmail($email);
 //inclua aqui o resto das chamadas dos metodos de validaçao;
 
 //$mensagem=$validator->msg;

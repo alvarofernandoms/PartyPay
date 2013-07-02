@@ -57,7 +57,7 @@ class PessoaDAC {
         include_once 'conexao.php';
         $sql="SELECT email FROM pessoas WHERE email=$email";
         $result=mysql_query($sql);
-        mysql_close($cn);
+        mysql_close($conexao);
         if(mysql_num_rows($result)===0){
             return 1;
         }else{
