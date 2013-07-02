@@ -40,17 +40,15 @@ class PessoaDAC {
            $pessoa->setPrimeiroNome($row['primeiroNome']);
            $pessoa->setSobreNome($row['SobreNome']);
            $pessoa->setEmail($row['email']);
-           $pessoa->setTelefone($row['telefone']);
-           $pessoa->setDataNasc($row['dataNasc']);
-           $pessoa->setRg($row['rg']);
-           $pessoa->setImage($row['image']);
+           //$pessoa->setTelefone($row['telefone']);
+           //$pessoa->setDataNasc($row['dataNasc']);
+           $pessoa->setCpf($row['cpf']);
+           //$pessoa->setImage($row['image']);
            $pessoa->setId($row['id']);
            return 1;
         }else{
             return NULL;
         }
-
-        
     }
  
     public static function verifiqueDispo($email){
