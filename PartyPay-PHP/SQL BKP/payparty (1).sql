@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
 -- Extraindo dados da tabela `pessoas`
 --
 
-INSERT INTO `pessoas` (`primeiroNome`, `sobreNome`, `email`, `id`, `senha`, `sexo`, `emailConfirmado`, `codConfirmacao`, `cpf`, `telefone`) VALUES
+INSERT INTO `pessoas` (`primeiroNome`, `sobreNome`, `email`, `id`, `senha`, `sexo`, `emailConfirmado`, `codConfirmacao`, `cpf`, `telefoneContato`) VALUES
 ('Andre', 'Ferraz', '234', 3, '202cb962ac59075b964b07152d234b70', 'Masculino', 0, '', '111.111.111-11', '(11) 1111-1111');
 
 -- --------------------------------------------------------
