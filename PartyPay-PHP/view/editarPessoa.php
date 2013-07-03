@@ -1,16 +1,24 @@
-<?php require_once('header.php'); 
+<?php require_once('header.php');
+	
+	include 'model/Pessoa.php';
 
-	$primeiroNome = $_GET["primeiroNome"];
-	$sobreNome = $_GET["sobreNome"];
-	$email = $_GET["email"];
-	$sexo = $_GET["sexo"];
-	$cpf = $_GET["cpf"];
-	$telefoneContato = $_GET["telefoneContato"];
+	$id = $_GET['id']; // consultar id na sessao
+
+	$fulano = new Pessoa;
+	$fulano->construaPorId($id);
+
+	$primeiroNome = $fulano->getPrimeiroNome();
+	$sobreNome = $fulano->getSobreNome();
+	$email = $fulano->getEmail();
+	$sexo = $fulano->getSexo();
+	$cpf = $fulano->getCpf();
+	$telefone = $fulano->getTelefoneContato();
 
 ?>
 		<section class="container">
-    		<h3>Editar Cadastro</h3>
+    		<h3>Editar dados</h3>
 			<div class="row">
+				<h3>"<?php echo $sexo; ?>"</h3>
 				<form class="form-horizontal" method="post" action="controller/processaCadastroPessoa.php" enctype="multipart/form-data">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Primeiro Nome</label>
@@ -25,38 +33,38 @@
 				    </div>
 				  </div>
 				  <div class="control-group">
-				    <label class="control-label" for="nome">email</label>
+				    <label class="control-label" for="email">email</label>
 				    <div class="controls">
 				      <span class="input-xlarge uneditable-input"><?php echo $email; ?></span></div>
 				  </div>
 				  <div class="control-group">
-				    <label class="control-label" for="nome">Senha</label>
+				    <label class="control-label" for="senha">Senha</label>
 				    <div class="controls">
 				      <a href="#">Mudar senha</a>
 				    </div>
 				  </div>
 				  <div class="control-group">
-				    <label class="control-label" for="nome">Sexo</label>
+				    <label class="control-label" for="sexo">Sexo</label>
 
 				    <div class="controls">
 				    	<select name="sexo">
 						  <option>Feminino</option>
 						  <option>Masculino</option>
 						</select>
-				  </div>
+				  	</div>
 
 				<!-- cod confirmação -->
 
 				  <div class="control-group">
-				    <label class="control-label" for="nome">CPF</label>
+				    <label class="control-label" for="cpf">CPF</label>
 				    <div class="controls">
 				      <input type="text" id="cpf" name="cpf" placeholder="CPF" value="<?php echo $cpf; ?>" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
-				    <label class="control-label" for="nome">Telefone de Contato</label>
+				    <label class="control-label" for="telefoneContato">Telefone de Contato</label>
 				    <div class="controls">
-				      <input type="text" id="telefone" name="telefoneContato" placeholder="Telefone de Contato" value="<?php echo $telefoneContato; ?>" required>
+				      <input type="text" id="telefone" name="telefoneContato" placeholder="Telefone de Contato" value="<?php echo $telefone; ?>" required>
 				    </div>
 				  </div>
 

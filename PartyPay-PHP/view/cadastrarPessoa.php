@@ -30,11 +30,11 @@
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Sexo</label>
 				    <div class="controls">
-				    	<div class="btn-group" data-toggle="buttons-radio">
-							<label>Masculino</label><input type="radio" name="sexo" value="masculino" /><br />
-                        	<label>Feminino</label><input type="radio" name="sexo" value="feminino" /><br />
-                        </div>
-					</div>
+				    	<select name="sexo">
+						  <option>Feminino</option>
+						  <option>Masculino</option>
+						</select>
+				  	</div>
 				  </div>
 
 				<!-- cod confirmação -->
