@@ -19,7 +19,7 @@
     		<h3>Editar dados</h3>
 			<div class="row">
 				<h3>"<?php echo $sexo; ?>"</h3>
-				<form class="form-horizontal" method="post" action="controller/processaCadastroPessoa.php" enctype="multipart/form-data">
+				<form class="form-horizontal" method="post" action="controller/processaEditaPessoa.php" enctype="multipart/form-data">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Primeiro Nome</label>
 				    <div class="controls">
