@@ -6,7 +6,8 @@ class PessoaTEST extends PHPUnit_Framework_TestCase{
     public $test;
 
     public function setUp(){
-    	$this->thes = new Pessoa("leandro");
+    	$this->test = new Pessoa();
+    	$primeiroNome = $this->test->setPrimeiroNome("leandro");
     }
 
     public function testPrimeiroNome(){
