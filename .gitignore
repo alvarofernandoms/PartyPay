@@ -7,3 +7,6 @@ PartyPay-PHP/nbproject/private/
 
 # Talvez seja desejável também ignorar os outros files e folders #
 # criados pelo NetBeans #
+
+# Ignorando arquivos com extensão #
+*.php~
