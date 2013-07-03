@@ -23,24 +23,23 @@ addcslashes($telefoneContato,$strList);
 
 //Validação comentada para rodar no localhost
 //$validator= new ValidaCadastro();
-
 //$validator->validarEmail($email);
 //inclua aqui o resto das chamadas dos metodos de validaçao;
-
 //$mensagem=$validator->msg;
 //echo "<script>alert('$mensagem');</script>";
 
 
-$codigo=gerarCodigoConfirmaçao();
-$pessoa=new Pessoa();
+$codigo = gerarCodigoConfirmaçao();
+$pessoa = new Pessoa();
 
-    $pessoa->setEmail($email);
-    $pessoa->setPrimeiroNome($primeiroNome);
-    $pessoa->setSobreNome($sobreNome);
-    $pessoa->setTelefoneContato($telefoneContato);
-    $pessoa->setPassword(md5($password));//criptografia md5 para o password
-    $pessoa->setSexo($sexo);
-    $pessoa->setCpf($cpf);
+
+$pessoa->setEmail($email);
+$pessoa->setPrimeiroNome($primeiroNome);
+$pessoa->setSobreNome($sobreNome);
+$pessoa->setPassword(md5($password)); //criptografia md5 para o password
+$pessoa->setSexo($sexo);
+$pessoa->setCpf($cpf);
+$pessoa->setTelefoneContato($telefoneContato);
 
 
 $pessoa->setCodConfirmacao($codigo);
@@ -49,6 +48,4 @@ echo "efetuado com sucesso";
 // header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
 header("Location: ../editarPessoa.php");
 
-    
 
-?>
