@@ -178,6 +178,10 @@ class Pessoa {
         PessoaDAC::delete($this);
     }
 
+    public function atualizar() {
+        PessoaDAC::atualizar($this);
+    }
+
 }
 
 ?>

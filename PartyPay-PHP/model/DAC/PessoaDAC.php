@@ -5,8 +5,13 @@ class PessoaDAC {
     public static function persist($pessoa) {
 
         include_once 'conexao.php';
-        $sql = "INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `senha`,`sexo`, `emailConfirmado` , `codConfirmacao`, `cpf`, `telefoneContato`) VALUES 
-            ('" . $pessoa->getPrimeiroNome() . "','" . $pessoa->getSobreNome() . "','" . $pessoa->getEmail() . "','" . $pessoa->getPassword() . "','" . $pessoa->getSexo() . "','0','" . $pessoa->getCodConfirmacao() . "','" . $pessoa->getCpf() . "','" . $pessoa->getTelefoneContato() . "');";
+        $sql = "INSERT INTO pessoas(`primeiroNome`, `sobreNome`, `email`, `senha`,`sexo`, 
+            `emailConfirmado` , `codConfirmacao`, `cpf`, `telefoneContato`) VALUES 
+            ('" . $pessoa->getPrimeiroNome() . "','" . $pessoa->getSobreNome() . "',
+                '" . $pessoa->getEmail() . "','" . $pessoa->getPassword() . "',
+                '" . $pessoa->getSexo() . "','0','" . $pessoa->getCodConfirmacao() . "',
+                '" . $pessoa->getCpf() . "','" . $pessoa->getTelefoneContato() . "');";
+
         mysql_query($sql) or die(mysql_error() . "pessoaDAC - Persist");
         $RES = mysql_query("SELECT LAST_INSERT_ID()");
         $mat = mysql_fetch_array($RES);
@@ -17,14 +22,27 @@ class PessoaDAC {
 
     public static function updateInfo(Pessoa $pessoa, $atributo, $atributoNovo) {
         include_once 'conexao.php';
-        $sql = "UPDATE `pessoas` SET `$atributo`=$atributoNovo WHERE id=" . $pessoa->getId();
+        $sql = "UPDATE `pessoas` SET `$atributo`=$atributoNovo WHERE id=". $pessoa->getId();
+        mysql_query($sql) or die(mysql_error());
+        mysql_close($conexao);
+    }
+
+    public static function atualizar($pessoa){
+        include_once 'conexao.php';
+        $sql = "UPDATE pessoas SET
+        primeiroNome='" . $pessoa->getPrimeiroNome() . "',
+        sobreNome='" . $pessoa->getSobreNome() . "',
+        sexo='" . $pessoa->getSexo() . "',
+        cpf='" . $pessoa->getCpf() . "',
+        telefoneContato='" . $pessoa->getTelefoneContato() . "'
+        WHERE id='". $pessoa->getId() ."'";
         mysql_query($sql) or die(mysql_error());
         mysql_close($conexao);
     }
 
     public static function delete($pessoa) {
         include_once 'conexao.php';
-        $sql = "DELETE FROM `pessoas` WHERE id=" . $pessoa->getId();
+        $sql = "DELETE FROM `pessoas` WHERE id=";
         mysql_query($sql) or die(mysql_error());
         mysql_close($conexao);
     }

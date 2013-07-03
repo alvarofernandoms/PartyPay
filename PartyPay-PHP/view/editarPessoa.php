@@ -2,10 +2,11 @@
 	
 	include 'model/Pessoa.php';
 
-	$id = $_GET['id']; // consultar id na sessao
+	session_start('login');
+	$_SESSION['id'] = 6;
 
 	$fulano = new Pessoa;
-	$fulano->construaPorId($id);
+	$fulano->construaPorId($_SESSION['id']);
 
 	$primeiroNome = $fulano->getPrimeiroNome();
 	$sobreNome = $fulano->getSobreNome();
@@ -18,7 +19,7 @@
 		<section class="container">
     		<h3>Editar dados</h3>
 			<div class="row">
-				<h3>"<?php echo $sexo; ?>"</h3>
+				<h3>"<?php  echo $_SESSION['id'];?>"</h3>
 				<form class="form-horizontal" method="post" action="controller/processaEditaPessoa.php" enctype="multipart/form-data">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Primeiro Nome</label>
@@ -67,7 +68,7 @@
 				      <input type="text" id="telefone" name="telefoneContato" placeholder="Telefone de Contato" value="<?php echo $telefone; ?>" required>
 				    </div>
 				  </div>
-
+					<?php $id = 9; // consultar id na sessao ?>
 				  <div class="control-group">
 				    <div class="controls">
 				      <button type="submit" class="btn btn-success">Enviar</button>

@@ -4,11 +4,15 @@ include '../model/Pessoa.php';
 include '../tratamentoDeExcecao/ValidaCadastro.php';
 include 'gerarCodConfirmacao.php';
 
+
+session_start('login');
+
 $primeiroNome= addslashes($_POST['primeiroNome']);
 $sobreNome=addslashes($_POST['sobreNome']);
 $sexo=addslashes($_POST['sexo']);
 $cpf=addslashes($_POST['cpf']);
 $telefoneContato=addslashes($_POST['telefoneContato']);
+$id=$_SESSION['id'];
 
 $strList="\\\'\"&\n\r<>";
 addcslashes($primeiroNome,$strList);
@@ -34,14 +38,16 @@ $pessoa->setSobreNome($sobreNome);
 $pessoa->setSexo($sexo);
 $pessoa->setCpf($cpf);
 $pessoa->setTelefoneContato($telefoneContato);
-$pessoa->setId(3);
+$pessoa->setId($id);
 
 
 $pessoa->setCodConfirmacao($codigo);
-$pessoa->updateInfo("sobreNome", "sobreNome");
+//$pessoa->updateInfo("sobreNome", "sobreNome");
+
+$pessoa->atualizar();
 
 
-echo "efetuado com sucesso";
+echo "efetuado com sucesso ".$id;
 // header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
 header("Location: ../editarPessoa.php");
 
