@@ -43,10 +43,10 @@ class PessoaTEST extends PHPUnit_Framework_TestCase{
     }
     
     public function testSexo(){
-    	$Sexo = $this->test->setId("Feminino");
+    	$Sexo = $this->test->setSexo("Feminino");
     	$nome = $this->test->getSexo();    	
     //	$this->assertTrue($nome == "Sexo");
-    	$this->assertEquals("Masculino", $nome);
+    	$this->assertEquals("Feminino", $nome);
     }
 
     // TODO continuar daqui
