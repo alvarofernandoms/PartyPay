@@ -11,7 +11,7 @@
  * @author Fagner-note
  */
 class ValidaCadastro {
-
+ 
     var $campo;
     var $valor;
     var $msg = array();
@@ -29,7 +29,7 @@ class ValidaCadastro {
         $this->msg[7] = "Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
         $this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
         $this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
-        $this->msg[10] = "E-mail já existe, cadastre outro email. <br />"; // Email não pode já estar cadastrado
+        $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
         return $this->msg[$num];
     }
 
