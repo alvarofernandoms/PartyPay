@@ -29,14 +29,25 @@ class ValidaCadastro {
         $this->msg[7] = "Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
         $this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
         $this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
-
+        $this->msg[10] = "E-mail já existe, cadastre outro email. <br />"; // Email não pode já estar cadastrado
         return $this->msg[$num];
     }
 
     // Validar Email
     function validarEmail($email) {
-        if (!eregi("^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$", $email)) {
-            return $this->mensagens(0, 'email', null, null);
+        //if (!preg_match("/^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$/", $email)) {
+        //if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)){
+            header("refresh:5;url=../cadastrarPessoa.php");
+            echo $this->mensagens(0, 'email', null, null);
+            exit;
+            //return $this->mensagens(0, 'email', null, null);
+        } else if (PessoaDAC::verifiqueDispo($email) == 1) {
+             {
+                header("refresh:5;url=../cadastrarPessoa.php");
+                echo $this->mensagens(10, 'email', null, null);
+                exit;
+            }
         }
     }
 
