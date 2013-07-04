@@ -41,7 +41,7 @@ $email)) {
             echo $this->mensagens(0, 'email', null, null);
             exit;
         }
-        if (PessoaDAC::verifiqueDispo($email))
+        else if(PessoaDAC::verifiqueDispo($email == 1))
         {
             header("refresh:2;url=../cadastrarPessoa.php");
             echo $this->mensagens(10, 'email', null, null);
