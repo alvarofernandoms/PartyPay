@@ -4,22 +4,22 @@ include '../model/Pessoa.php';
 include '../tratamentoDeExcecao/ValidaCadastro.php';
 include 'gerarCodConfirmacao.php';
 
-$primeiroNome= addslashes($_POST['primeiroNome']);
-$sobreNome=addslashes($_POST['sobreNome']);
-$email=addslashes($_POST['email']);
-$password=addslashes($_POST['password']);
-$sexo=addslashes($_POST['sexo']);
-$cpf=addslashes($_POST['cpf']);
-$telefoneContato=addslashes($_POST['telefoneContato']);
+$primeiroNome = addslashes($_POST['primeiroNome']);
+$sobreNome = addslashes($_POST['sobreNome']);
+$email = addslashes($_POST['email']);
+$password = addslashes($_POST['password']);
+$sexo = addslashes($_POST['sexo']);
+$cpf = addslashes($_POST['cpf']);
+$telefoneContato = addslashes($_POST['telefoneContato']);
 
-$strList="\\\'\"&\n\r<>";
-addcslashes($primeiroNome,$strList);
-addcslashes($sobreNome,$strList);
-addcslashes($email,$strList);
-addcslashes($password,$strList);
-addcslashes($sexo,$strList);
-addcslashes($cpf,$strList);
-addcslashes($telefoneContato,$strList);
+$strList = "\\\'\"&\n\r<>";
+addcslashes($primeiroNome, $strList);
+addcslashes($sobreNome, $strList);
+addcslashes($email, $strList);
+addcslashes($password, $strList);
+addcslashes($sexo, $strList);
+addcslashes($cpf, $strList);
+addcslashes($telefoneContato, $strList);
 
 //Validação comentada para rodar no localhost
 //$validator= new ValidaCadastro();
@@ -47,5 +47,4 @@ $pessoa->persist();
 echo "efetuado com sucesso";
 // header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
 header("Location: ../editarPessoa.php");
-
-
+?>

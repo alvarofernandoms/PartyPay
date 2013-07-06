@@ -1,6 +1,9 @@
 <?php
+
 require_once 'DAC/LocalDAC.php';
+
 class Local {
+
     private $endereco;
     private $numero;
     private $complemento;
@@ -14,7 +17,7 @@ class Local {
     private $nome;
     private $estado;
     private $miniatura;
-    
+
     public function getMiniatura() {
         return $this->miniatura;
     }
@@ -23,7 +26,6 @@ class Local {
         $this->miniatura = $miniatura;
     }
 
-        
     public function getEstado() {
         return $this->estado;
     }
@@ -31,11 +33,11 @@ class Local {
     public function setEstado($estado) {
         $this->estado = $estado;
     }
-    
+
     function __construct() {
         
     }
-    
+
     public function getNumero() {
         return $this->numero;
     }
@@ -82,8 +84,8 @@ class Local {
 
     public function setPais($pais) {
         $this->pais = $pais;
-    } 
-    
+    }
+
     public function getNome() {
         return $this->nome;
     }
@@ -92,7 +94,6 @@ class Local {
         $this->nome = $nome;
     }
 
-        
     public function getId() {
         return $this->id;
     }
@@ -101,7 +102,6 @@ class Local {
         $this->id = $id;
     }
 
-        
     public function getEndereco() {
         return $this->endereço;
     }
@@ -126,17 +126,18 @@ class Local {
         $this->fotos = $fotos;
     }
 
-    public function persist(){
+    public function persist() {
         return LocalDAC::persist($this);
     }
-    
-    public function updateInfo($atributo,$novoValor){
+
+    public function updateInfo($atributo, $novoValor) {
         LocalDAC::updateInfo($this, $atributo, $novoValor);
     }
-    
-    public function delete(){
+
+    public function delete() {
         LocalDAC::delete($this);
     }
+
 }
 
 ?>

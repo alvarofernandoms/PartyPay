@@ -1,10 +1,10 @@
 <?php
 
-class EventoLocal{
-    
-    public static function persist($eventoId,$localId){
+class EventoLocal {
+
+    public static function persist($eventoId, $localId) {
         require 'conexao.php';
-        $sql="INSERT INTO `locaisdoseventos` (
+        $sql = "INSERT INTO `locaisdoseventos` (
             `id` ,
             `localID` ,
             `eventoID`
@@ -12,9 +12,10 @@ class EventoLocal{
             VALUES (
             NULL ,  '$localId',  '$eventoId'
             );";
-        mysql_query($sql) or die(mysql_error()."EventoLocalDAC.php inserçao de dados na tabela");
+        mysql_query($sql) or die(mysql_error() . "EventoLocalDAC.php inserçao de dados na tabela");
         mysql_close($conexao);
     }
-    
+
 }
+
 ?>

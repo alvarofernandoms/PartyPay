@@ -45,46 +45,40 @@ class ValidaCadastro {
         if (!eregi("^[0-9]{5}-[0-9]{3}$", $cep)) {
             return $this->mensagens(1, 'cep', null, null);
         }
-    } 
-    
+    }
+
     // Validar Datas (DD/MM/AAAA)
     function validarData($data) {
-         if (!eregi("^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) { 
-             return $this->mensagens(2, 'data', null, null);
-         }
-    } 
-    
+        if (!eregi("^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
+            return $this->mensagens(2, 'data', null, null);
+        }
+    }
+
     // Validar Datas (DD/MM/AAAA)
-    function checkData($date)
-{
-   if (!isset($date) || $date=="")
-   {
-      return $this->mensagens(2, 'data', null, null);
-   }
- 
-   list($dd,$mm,$yy) = explode("/",$date);
-   if ($dd!="" && $mm!="" && $yy!="")
-   {
-      if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
-      {
-         return checkdate($mm,$dd,$yy);
-      }
-   }  
-   return $this->mensagens(2, 'data', null, null);
-}
+    function checkData($date) {
+        if (!isset($date) || $date == "") {
+            return $this->mensagens(2, 'data', null, null);
+        }
+
+        list($dd, $mm, $yy) = explode("/", $date);
+        if ($dd != "" && $mm != "" && $yy != "") {
+            if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd)) {
+                return checkdate($mm, $dd, $yy);
+            }
+        }
+        return $this->mensagens(2, 'data', null, null);
+    }
 
     // VALIDAR HORA (23:59)
-    function checktime($time)
-{
-   list($hour,$minute) = explode(':',$time);
- 
-   if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60)
-   {
-      return true;
-   }
-   else
-       return $this->mensagens(3, 'hora', null, null);
-} 
+    function checktime($time) {
+        list($hour, $minute) = explode(':', $time);
+
+        if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60) {
+            return true;
+        }
+        else
+            return $this->mensagens(3, 'hora', null, null);
+    }
 
     // Validar Telefone (01432363810)
     function validarTelefone($telefone) {

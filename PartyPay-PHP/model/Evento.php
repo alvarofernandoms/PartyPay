@@ -4,23 +4,23 @@ require_once 'DAC/EventoDAC.php';
 
 class Evento {
 
-    private $nome;//nome do evento
+    private $nome; //nome do evento
     private $dataCriacao;
     private $dataInicio;
     private $dataTermino;
-    private $imagem;//input do tipo file name arquivo
+    private $imagem; //input do tipo file name arquivo
     private $precoMasc;
     private $precoFem;
-    private $organizador;//nao precisa
-    private $local;//nao precisa
+    private $organizador; //nao precisa
+    private $local; //nao precisa
     private $facebookEventPage;
     private $descricao;
     private $numeroIngressos;
     private $horaInicio;
     private $horaTermino;
-    private $miniatura;//nao precisa
+    private $miniatura; //nao precisa
     private $classificacao;
-    
+
     public function getClassificacao() {
         return $this->classificacao;
     }
@@ -28,8 +28,6 @@ class Evento {
     public function setClassificacao($classificacao) {
         $this->classificacao = $classificacao;
     }
-
-    
 
     public function getMiniatura() {
         return $this->miniatura;
@@ -39,7 +37,6 @@ class Evento {
         $this->miniatura = $miniatura;
     }
 
-        
     public function getHoraInicio() {
         return $this->horaInicio;
     }
@@ -55,12 +52,11 @@ class Evento {
     public function setHoraTermino($horaTermino) {
         $this->horaTermino = $horaTermino;
     }
-    
+
     function __construct() {
         
     }
 
-    
     public function getNumeroIngressos() {
         return $this->numeroIngressos;
     }
@@ -69,7 +65,6 @@ class Evento {
         $this->numeroIngressos = $numeroIngressos;
     }
 
-    
     public function getDataCriacao() {
         return $this->dataCriacao;
     }

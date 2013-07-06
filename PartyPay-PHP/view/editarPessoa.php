@@ -3,7 +3,7 @@
 	include 'model/Pessoa.php';
 
 	session_start('login');
-	$_SESSION['id'] = 6;
+	$_SESSION['id'] = 3;
 
 	$fulano = new Pessoa;
 	$fulano->construaPorId($_SESSION['id']);

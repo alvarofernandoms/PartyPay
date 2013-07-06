@@ -119,9 +119,8 @@ class PessoaTEST extends PHPUnit_Framework_TestCase {
         $nome = $this->test->getFacebookFanPage();
         $this->assertEquals("www.facebook.com/dreamtheaterofficial", $nome);
     }
-    
-    // TESTES DOS SETTERS E OS GETTERS TERMINAM AQUI
 
+    // TESTES DOS SETTERS E OS GETTERS TERMINAM AQUI
 }
 
 ?>
