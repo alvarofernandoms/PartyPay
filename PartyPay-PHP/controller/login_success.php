@@ -1,7 +1,8 @@
 <?php
 session_start();
 if (!session_is_registered(email)) {
-    header("location: ../index.php");
+    echo "email";
+    //header("location: ../index.php");
 }
 function session_is_registered($x)
 {
@@ -14,6 +15,6 @@ function session_is_registered($x)
 
 <html>
     <body>
-        Login Successful
+        Login efetuado!
     </body>
 </html>

@@ -39,11 +39,15 @@ $count = mysql_num_rows($result);
 
 // Se o resuldado bater com o $email e o $mypassword, têm que haver uma linha no BD
 if ($count == 1) {
-
 // Registra $email, $mypassword e direciona para o arquivo "login_success.php"
+// Porém este SESSION já faz a função que o arquivo login_sucess faz.
+// TODO: PESQUISAR NECESSIDADE DE TAL ARQUIVO!
     $_SESSION['email'] = $email;
     $_SESSION['password'] = $mypassword;
-    header("location:login_success.php");
+    //session_start();
+    echo "Login Sucess!";
+     //header("location: login_sucess.php")
+    //header("location: ../index.php");
 } else {
     echo "Wrong Username or Password";
 }
