@@ -19,11 +19,17 @@
                         <li><a href="cadastrarPessoa.php">Sign up</a></li>
                     </ul>
                     <a class="btn btn-success" href="cadastrarEvento.php">Divulgar seu evento</a>
-                    <h0>E-mail:</h0>
-                    <input type="text" name="email" placeholder="E-mail" required>
-                    <h0>Password:</h0>
-                    <input type="text" name="password" placeholder="Password" required>
-                    <a type="submit" class="btn btn-success" href="processaLogin.php">Entrar!</a>
+                    <section class="container">
+                        <div class="row">
+                            <form class="form-horizontal" method="post" action="controller/processaLogin.php" enctype="multipart/form-data">
+                                <h0>E-mail:</h0>
+                                <input type="text" name="email" placeholder="E-mail" required>
+                                <h0>Password:</h0>
+                                <input type="password" name="password" placeholder="Password" required>
+                                <button type="submit" class="btn btn-success">Entrar!</button>
+                            </form>
+                        </div>
+                    </section>
                 </div>
             </div>
             <div id="hero" class="">
