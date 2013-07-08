@@ -18,7 +18,7 @@
 				  <div class="control-group">
 				    <label class="control-label" for="nome">email</label>
 				    <div class="controls">
-				      <input type="text" name="email" placeholder="email"  >
+				      <input type="email" name="email" placeholder="email" required>
 				    </div>
 				  </div>
 				  <div class="control-group">
