@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Party Pay</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="view/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="view/css/style.css" rel="stylesheet" media="screen">
-    </head>
-    <body>
-        <header>
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a class="brand" href="index.php"><img src="view/img/marca-mini.png" alt="" /></a>
-                    <ul class="nav">
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="cadastrarPessoa.php">Sign up</a></li>
-                    </ul>
-                    <a class="btn btn-success" href="cadastrarEvento.php">Divulgar seu evento</a>
-                    <section class="container">
-                        <div class="row">
-                            <form class="form-horizontal" method="post" action="controller/processaLogin.php" enctype="multipart/form-data">
-                                <h0>E-mail:</h0>
-                                <input type="text" name="email" placeholder="E-mail" required>
-                                <h0>Password:</h0>
-                                <input type="password" name="password" placeholder="Password" required>
-                                <button type="submit" class="btn btn-success">Entrar!</button>
-                            </form>
-                        </div>
-                    </section>
-                </div>
-            </div>
+<?php require_once 'header.php'; ?>
             <div id="hero" class="">
                 <ul>
                     <li><img src="view/img/slide.jpg" alt="" /></li>
@@ -49,7 +16,6 @@
                     </div>
                 </div>
             </div>
-        </header>
         <section class="container">
             <h3>Eventos em destaque</h3>
             <div class="row">
