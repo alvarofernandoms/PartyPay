@@ -49,6 +49,7 @@ class EventoDAC {
         mysql_query($sql)or die(mysql_error());
         mysql_close($conexao);
     }
+    //TESTE DE COMMIT COM USER.EMAIL (FAGNER) CONFIGURADO!
 }
 
 ?>
