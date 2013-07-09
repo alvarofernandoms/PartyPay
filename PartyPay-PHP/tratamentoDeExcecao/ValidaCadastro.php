@@ -17,7 +17,7 @@ class ValidaCadastro {
     var $msg = array();
 
     // Mensagens de erro
-    function mensagens($num, $campo, $max, $min) {
+    function mensagens($num, $campo) {
 
         $this->msg[0] = "Preencha o campo com um email válido <br />"; // EMAIL
         $this->msg[1] = "CEP com formato inválido (Ex: XXXXX-XXX) <br />"; // CEP
@@ -26,9 +26,9 @@ class ValidaCadastro {
         $this->msg[4] = "Telefone inválido (Ex: 01433333333) <br />"; // TELEFONE
         $this->msg[5] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
         $this->msg[6] = "Preencha o campo " . $campo . " com numeros <br />"; // APENAS NUMEROS
-        $this->msg[7] = "Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
-        $this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
-        $this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
+        $this->msg[7] = "Por favor Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
+        //$this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
+        //$this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
         $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
         return $this->msg[$num];
     }
@@ -174,15 +174,13 @@ class ValidaCadastro {
     }
 
     // Verificação simples (Campo vazio, maximo/minimo de caracteres)
-    function validarCampo($campo, $valor, $max, $min) {
-        $this->campo = $campo;
+    function validarCampo($campo, $valor) {
+        //$this->campo = $campo;
         if ($valor == "") {
-            return $this->mensagens(7, $campo, $max, $min);
-        } elseif (strlen($valor) > $max) {
-            return $this->mensagens(8, $campo, $max, $min);
-        } elseif (strlen($valor) < $min) {
-            return $this->mensagens(9, $campo, $max, $min);
-        }
+            header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(7, $campo);
+            exit();
+        } 
     }
 
 // Verifica se tem erros

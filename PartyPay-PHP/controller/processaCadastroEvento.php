@@ -1,10 +1,10 @@
 <?php
+include '../tratamentoDeExcecao/ValidaCadastro.php';
 
 require_once '../model/Evento.php';
 
 session_start();
 $_SESSION['userId']="3";
-
 
 
 $nome=$_POST['nome'];
@@ -38,6 +38,9 @@ $evento->setFacebookEventPage($facebookEventPage);
 $evento->setDescricao($descricao);
 $evento->setOrganizador($organizadorId);
 $evento->setClassificacao($classificacao);
+
+$validator= new ValidaCadastro();
+$validator->validarCampo("Nome",$nome);
 
 $_SESSION['eventoid']=$evento->persist();
 header("Location:../cadastrar-evento-local.php");
