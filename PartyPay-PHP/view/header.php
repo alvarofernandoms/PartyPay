@@ -3,7 +3,8 @@ include 'model/Pessoa.php';
 
 session_start();
 
-if (isset($_SESSION)) {
+if (isset($_SESSION['id'])) {
+
 
 $primeiroNome = $_SESSION['primeiroNome'];
 $sobreNome = $_SESSION['sobreNome'];
@@ -32,14 +33,14 @@ $telefone = $_SESSION['telefoneContato'];
 			      <li class="active"><a href="index.php">Home</a></li>
 			      <li><a href="#">Sobre</a></li>
 			      <?php
-					if (!isset($_SESSION)) { ?>
+					if (!isset($_SESSION['id'])) { ?>
 					<li><a href="#myModal" data-toggle="modal">Entrar</a</li>
 				  <?php } else{}?>
 			      <li><a href="cadastrarPessoa.php">Sign up</a></li>
 			    </ul>
 			    <a class="btn btn-success pull-right" href="cadastrarEvento.php">Divulgar seu evento</a>
 				<?php
-					if (isset($_SESSION)) { ?>
+					if (isset($_SESSION['id'])) { ?>
 				<div id="usuario" class="btn-group pull-right">
 				  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 					   <?php  echo "$primeiroNome $sobreNome"; ?>
