@@ -14,38 +14,38 @@ class PessoaTEST extends PHPUnit_Framework_TestCase {
 
     public function testInsercaoPrimeiroNome() {
         $primeiroNome = $this->test->setPrimeiroNome("nome");
-        $nome = $this->test->getPrimeiroNome();
-        $this->assertEquals("nome", $nome);
+        $nomeTeste = $this->test->getPrimeiroNome();
+        $this->assertEquals("nome", $nomeTeste);
     }
 
     public function testInsercaoSobreNome() {
         $sobreNome = $this->test->setSobreNome("sobrenome");
-        $nome = $this->test->getSobreNome();
-        $this->assertEquals("sobrenome", $nome);
+        $nomeTeste = $this->test->getSobreNome();
+        $this->assertEquals("sobrenome", $nomeTeste);
     }
 
     public function testInsercaoEmail() {
         $email = $this->test->setEmail("email");
-        $nome = $this->test->getEmail();
-        $this->assertEquals("email", $nome);
+        $nomeTeste = $this->test->getEmail();
+        $this->assertEquals("email", $nomeTeste);
     }
 
     public function testInsercaoId() {
         $Id = $this->test->setId("Id");
-        $nome = $this->test->getId();
-        $this->assertEquals("Id", $nome);
+        $nomeTeste = $this->test->getId();
+        $this->assertEquals("Id", $nomeTeste);
     }
 
     public function testInsercaoPassword() {
-        $Password = $this->test->setPassword("Password");
-        $nome = $this->test->getPassword();
-        $this->assertEquals("Password", $nome);
+        $password = $this->test->setPassword("Password");
+        $nomeTeste = $this->test->getPassword();
+        $this->assertEquals("Password", $nomeTeste);
     }
 
     public function testInsercaoSexo() {
-        $Sexo = $this->test->setSexo("Feminino");
-        $nome = $this->test->getSexo();
-        $this->assertEquals("Feminino", $nome);
+        $sexo = $this->test->setSexo("Feminino");
+        $nomeTeste = $this->test->getSexo();
+        $this->assertEquals("Feminino", $nomeTeste);
     }
 
     // TODO continuar daqui
@@ -55,73 +55,72 @@ class PessoaTEST extends PHPUnit_Framework_TestCase {
     // Fazer os demais parametros
 
     public function testInsercaoCodConfirmacao() {
-        $primeiroNome = $this->test->setCodConfirmacao("132456");
-        $nome = $this->test->getCodConfirmacao();
-        $this->assertEquals("132456", $nome);
+        $codConfirmacaoprimeiroNome = $this->test->setCodConfirmacao("132456");
+        $nomeTeste = $this->test->getCodConfirmacao();
+        $this->assertEquals("132456", $nomeTeste);
     }
 
     public function testInsercaoCpf() {
-        $primeiroNome = $this->test->setCpf("111.111.111-11");
-        $nome = $this->test->getCpf();
-        $this->assertEquals("111.111.111-11", $nome);
+        $cpf = $this->test->setCpf("111.111.111-11");
+        $nomeTeste = $this->test->getCpf();
+        $this->assertEquals("111.111.111-11", $nomeTeste);
     }
 
     public function testInsercaoCompras() {
-        $primeiroNome = $this->test->setCompras("compra01");
-        $nome = $this->test->getCompras();
-        $this->assertEquals("compra01", $nome);
+        $compras = $this->test->setCompras("compra01");
+        $nomeTeste = $this->test->getCompras();
+        $this->assertEquals("compra01", $nomeTeste);
     }
 
     public function testInsercaoCartoesDeCredito() {
-        $primeiroNome = $this->test->setCartoesDeCredito("cartão01");
-        $nome = $this->test->getCartoesDeCredito();
-        $this->assertEquals("cartão01", $nome);
+        $cartoesDeCredito = $this->test->setCartoesDeCredito("cartão01");
+        $nomeTeste = $this->test->getCartoesDeCredito();
+        $this->assertEquals("cartão01", $nomeTeste);
     }
 
     public function testInsercaoCnpj() {
-        $primeiroNome = $this->test->setCnpj("02.449.992/0056-38");
-        $nome = $this->test->getCnpj();
-        $this->assertEquals("02.449.992/0056-38", $nome);
+        $cnpj = $this->test->setCnpj("02.449.992/0056-38");
+        $nomeTeste = $this->test->getCnpj();
+        $this->assertEquals("02.449.992/0056-38", $nomeTeste);
     }
 
     public function testInsercaoEventos() {
-        $primeiroNome = $this->test->setEventos("PartyHard, Show do Metallica");
-        $nome = $this->test->getEventos();
-        $this->assertEquals("PartyHard, Show do Metallica", $nome);
+        $eventos = $this->test->setEventos("PartyHard, Show do Metallica");
+        $nomeTeste = $this->test->getEventos();
+        $this->assertEquals("PartyHard, Show do Metallica", $nomeTeste);
     }
 
     public function testInsercaoInformacoesBancarias() {
-        $primeiroNome = $this->test->setInformaçoesBancarias("Visa: 666");
-        $nome = $this->test->getInformaçoesBancarias();
-        $this->assertEquals("Visa: 666", $nome);
+        $informaçoesBancarias = $this->test->setInformaçoesBancarias("Visa: 666");
+        $nomeTeste = $this->test->getInformaçoesBancarias();
+        $this->assertEquals("Visa: 666", $nomeTeste);
     }
 
     public function testInsercaoTelefoneContato() {
-        $primeiroNome = $this->test->setTelefoneContato("(11) 1111-1111");
-        $nome = $this->test->getTelefoneContato();
-        $this->assertEquals("(11) 1111-1111", $nome);
+        $telefoneContato = $this->test->setTelefoneContato("(11) 1111-1111");
+        $nomeTeste = $this->test->getTelefoneContato();
+        $this->assertEquals("(11) 1111-1111", $nomeTeste);
     }
 
     public function testInsercaoNomeFantasia() {
-        $primeiroNome = $this->test->setNomeFantasia("I'm Batman!");
-        $nome = $this->test->getNomeFantasia();
-        $this->assertEquals("I'm Batman!", $nome);
+        $nomeFantasia = $this->test->setNomeFantasia("I'm Batman!");
+        $nomeTeste = $this->test->getNomeFantasia();
+        $this->assertEquals("I'm Batman!", $nomeTeste);
     }
 
     public function testInsercaoWebsite() {
-        $primeiroNome = $this->test->setWebsite("www.github.com/alvarofernandoms/PartyPay");
-        $nome = $this->test->getWebsite();
-        $this->assertEquals("www.github.com/alvarofernandoms/PartyPay", $nome);
+        $website = $this->test->setWebsite("www.github.com/alvarofernandoms/PartyPay");
+        $nomeTeste = $this->test->getWebsite();
+        $this->assertEquals("www.github.com/alvarofernandoms/PartyPay", $nomeTeste);
     }
 
     public function testInsercaoFacebookFanPage() {
-        $primeiroNome = $this->test->setFacebookFanPage("www.facebook.com/dreamtheaterofficial");
-        $nome = $this->test->getFacebookFanPage();
-        $this->assertEquals("www.facebook.com/dreamtheaterofficial", $nome);
+        $facebookFanPage = $this->test->setFacebookFanPage("www.facebook.com/dreamtheaterofficial");
+        $nomeTeste = $this->test->getFacebookFanPage();
+        $this->assertEquals("www.facebook.com/dreamtheaterofficial", $nomeTeste);
     }
-    
-    // TESTES DOS SETTERS E OS GETTERS TERMINAM AQUI
 
+    // OS TESTES DOS SETTERS E OS GETTERS TERMINAM AQUI
 }
 
 ?>
