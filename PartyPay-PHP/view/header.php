@@ -1,3 +1,18 @@
+<?php
+include 'model/Pessoa.php';
+
+session_start();
+
+if (isset($_SESSION)) {
+
+$primeiroNome = $_SESSION['primeiroNome'];
+$sobreNome = $_SESSION['sobreNome'];
+$email = $_SESSION['email'];
+$sexo = $_SESSION['sexo'];
+$cpf = $_SESSION['cpf'];
+$telefone = $_SESSION['telefoneContato'];
+
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,10 +31,27 @@
 			    <ul class="nav">
 			      <li class="active"><a href="index.php">Home</a></li>
 			      <li><a href="#">Sobre</a></li>
-			      <li><a href="#myModal" data-toggle="modal">Entrar</a</li>
+			      <?php
+					if (!isset($_SESSION)) { ?>
+					<li><a href="#myModal" data-toggle="modal">Entrar</a</li>
+				  <?php } else{}?>
 			      <li><a href="cadastrarPessoa.php">Sign up</a></li>
 			    </ul>
-			    <a class="btn btn-success" href="cadastrarEvento.php">Divulgar seu evento</a>
+			    <a class="btn btn-success pull-right" href="cadastrarEvento.php">Divulgar seu evento</a>
+				<?php
+					if (isset($_SESSION)) { ?>
+				<div id="usuario" class="btn-group pull-right">
+				  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					   <?php  echo "$primeiroNome $sobreNome"; ?>
+					</button>
+				    <span class="caret"></span>
+				  </a>
+				  <ul class="dropdown-menu">
+				  	<li><a href="editarPessoa.php">Editar cadastro</a></li>
+				  	<li><a href="logout.php">Sair</a></li>
+				  </ul>
+				</div>
+				<?php } else{}?>
 			  </div>
 			  <!-- Modal -->
 				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
