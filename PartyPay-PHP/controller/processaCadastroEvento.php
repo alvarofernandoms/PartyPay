@@ -41,6 +41,8 @@ $evento->setClassificacao($classificacao);
 
 $validator= new ValidaCadastro();
 $validator->validarCampo("Nome",$nome);
+$validator->checkData($dataInicio);
+$validator->checkData($dataTermino);
 
 $_SESSION['eventoid']=$evento->persist();
 header("Location:../cadastrar-evento-local.php");

@@ -12,13 +12,13 @@
                     <div class="control-group">
                         <label class="control-label" for="nome">Data de In&iacute;cio</label>
                         <div class="controls">
-                            <input type="date" name="dataInicio" required>
+                            <input type="date" name="dataInicio" > //required
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="nome">Data de T&aacute;rmino</label>
                         <div class="controls">
-                            <input type="date" name="dataTermino" required>
+                            <input type="date" name="dataTermino" > //required
                         </div>
                     </div>
                     <div class="control-group">

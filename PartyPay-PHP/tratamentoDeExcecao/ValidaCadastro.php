@@ -21,7 +21,7 @@ class ValidaCadastro {
 
         $this->msg[0] = "Preencha o campo com um email válido <br />"; // EMAIL
         $this->msg[1] = "CEP com formato inválido (Ex: XXXXX-XXX) <br />"; // CEP
-        $this->msg[2] = "Data em formato inválido (Ex: DD/MM/AAAA) <br />"; // DATA
+        $this->msg[2] = "Data em formato inválido, informe data como (Ex: DD/MM/AAAA) <br />"; // DATA
         $this->msg[3] = "Hora em formato inválido (Ex: XX:XX) <br />"; // HORA
         $this->msg[4] = "Telefone inválido (Ex: 01433333333) <br />"; // TELEFONE
         $this->msg[5] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
@@ -60,28 +60,44 @@ class ValidaCadastro {
     
     // Validar Datas (DD/MM/AAAA)
     function validarData($data) {
-         if (!eregi("^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) { 
-             return $this->mensagens(2, 'data', null, null);
+         //if (!preg_match("/^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
+            $data = explode("/",$data);
+            $dia = $data[0];
+            $mes = $data[1];
+            $ano = $data[2];
+            $result = checkdate($dia,$mes,$ano);
+                    if($result == 0){
+            // header("refresh:5;url=../cadastrarEvento.php");
+             echo $this->mensagens(2, 'data', null, null);
+             exit();
          }
     } 
     
     // Validar Datas (DD/MM/AAAA)
     function checkData($date)
 {
-   if (!isset($date) || $date=="")
-   {
-      return $this->mensagens(2, 'data', null, null);
-   }
+        if (!isset($date) || $date=="")
+        {
+            echo $this->mensagens(2, 'data', null, null);
+            exit();
+        }
  
    list($dd,$mm,$yy) = explode("/",$date);
    if ($dd!="" && $mm!="" && $yy!="")
    {
       if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
       {
-         return checkdate($mm,$dd,$yy);
+         if (checkdate($mm,$dd,$yy) == 0)
+         {
+                 echo $this->mensagens(2, 'data', null, null);
+                 exit();
+         }
+         echo $this->mensagens(2, 'data', null, null);
+         exit();
       }
    }  
-   return $this->mensagens(2, 'data', null, null);
+   echo $this->mensagens(2, 'data', null, null);
+   exit();
 }
 
     // VALIDAR HORA (23:59)
