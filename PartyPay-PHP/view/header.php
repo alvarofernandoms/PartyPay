@@ -32,11 +32,10 @@ $telefone = $_SESSION['telefoneContato'];
 			    <ul class="nav">
 			      <li class="active"><a href="index.php">Home</a></li>
 			      <li><a href="#">Sobre</a></li>
-			      <?php
-					if (!isset($_SESSION['id'])) { ?>
-					<li><a href="#myModal" data-toggle="modal">Entrar</a</li>
-				  <?php } else{}?>
-			      <li><a href="cadastrarPessoa.php">Sign up</a></li>
+			      <?php if (!isset($_SESSION['id'])) { ?>
+                              <li><a href="#myModal" data-toggle="modal">Entrar</a</li>
+                              <li><a href="cadastrarPessoa.php">Sign up</a></li>
+                              <?php } else{}?>
 			    </ul>
 			    <a class="btn btn-success pull-right" href="cadastrarEvento.php">Divulgar seu evento</a>
 				<?php
