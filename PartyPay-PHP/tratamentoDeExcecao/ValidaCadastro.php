@@ -79,14 +79,14 @@ class ValidaCadastro {
 {
         if (!isset($date) || $date=="")
         {
+            header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
             exit();
         }
- 
-
-   //@list($dd,$mm,$yy) = preg_split('/[-./ ]/', $date);  explode("/",$date);
+        
   if (!preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}$/', $date))
   {
+      header("refresh:5;url=../cadastrarEvento.php");
       echo $this->mensagens(2, 'data', null, null);
             exit();
   }
@@ -97,25 +97,10 @@ class ValidaCadastro {
   $result = checkdate($m, $d, $y);
   if($result == 0)
   {
+      header("refresh:5;url=../cadastrarEvento.php");
        echo $this->mensagens(2, 'data', null, null);
             exit();
-  }
-   
-   /*if ($dd!="" && $mm!="" && $yy!="")
-   {
-      if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
-      {
-         if (checkdate($mm,$dd,$yy) == 0)
-         {
-                 echo $this->mensagens(2, 'data', null, null);
-                 exit();
-         }
-         echo $this->mensagens(2, 'data', null, null);
-         exit();
-      }
-   }  
-   echo $this->mensagens(2, 'data', null, null);
-   exit();*/
+  }  
 }
 
     // VALIDAR HORA (23:59)
