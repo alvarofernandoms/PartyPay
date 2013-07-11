@@ -71,15 +71,28 @@ class ValidaCadastro {
     } 
     
     // Validar Datas (DD/MM/AAAA)
+    /*
+     * TODO:Refatarar mensagem de return
+     * refatorar número mágico em condição if
+     */
     function validarData($data) {
          //if (!preg_match("/^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
             $data = explode("/",$data);
             $dia = $data[0];
             $mes = $data[1];
             $ano = $data[2];
-            $result = checkdate($dia,$mes,$ano);
-                    if($result == 0){
-            // header("refresh:5;url=../cadastrarEvento.php");
+                        
+            if($ano < 2013){
+            header("refresh:5;url=../cadastrarEvento.php");
+             echo "Ano informado é inferior ao ano corrente <br />";
+             return "Ano informado é inferior ao ano corrente <br />";
+             exit();                
+            }
+            
+            $result = checkdate($mes,$dia,$ano);
+            
+            if($result == FALSE){
+            header("refresh:5;url=../cadastrarEvento.php");
              echo $this->mensagens(2, 'data', null, null);
              return $this->mensagens(2, 'data', null, null);
              exit();
