@@ -46,5 +46,13 @@ $pessoa->setCodConfirmacao($codigo);
 $pessoa->persist();
 echo "efetuado com sucesso";
 // header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
-header("Location: ../editarPessoa.php");
+header("Location: ../login.php");
+
+session_start();
+
+$_SESSION['email'] = $email;
+$_SESSION['password'] = $password;
+
+header("location: processaLogin.php");
+
 ?>
