@@ -50,14 +50,7 @@ class ValidaCadastro {
             exit;
             //return $this->mensagens(0, 'email', null, null);
         } else{
-            
-            /*try{
-                PessoaDAC::verifiqueDispo($email);
-                $disponibilidade = 1;
-            }  catch (ErrorException $e){
-                $disponibilidade = 0;
-            }*/
-         
+                     
             if ( PessoaDAC::verifiqueDispo($email) == 1) {
                 
                 header("refresh:5;url=../cadastrarPessoa.php");
@@ -88,6 +81,7 @@ class ValidaCadastro {
                     if($result == 0){
             // header("refresh:5;url=../cadastrarEvento.php");
              echo $this->mensagens(2, 'data', null, null);
+             return $this->mensagens(2, 'data', null, null);
              exit();
          }
     } 
