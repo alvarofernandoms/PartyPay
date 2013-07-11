@@ -1,27 +1,27 @@
 <?php
+include '../tratamentoDeExcecao/ValidaCadastro.php';
 
 require_once '../model/Evento.php';
 
 session_start();
-$_SESSION['userId'] = "3";
+$_SESSION['userId']="3";
 
 
-
-$nome = $_POST['nome'];
-$dataInicio = $_POST['dataInicio'];
-$dataTermino = $_POST['dataTermino'];
-$precoMasc = $_POST['precoMasc'];
-$precoFem = $_POST['precoFem'];
-$facebookEventPage = $_POST['facebookEventPage'];
-$descricao = $_POST['descricao'];
-$numeroIngressos = $_POST['numeroIngressos'];
-$horaInicio = $_POST['horaInicio'];
-$minutoInicio = $_POST['minutoInicio'];
-$minutoTermino = $_POST['minutoTermino'];
-$horaTermino = $_POST['horaTermino'];
-$organizadorId = $_SESSION['userId'];
-$classificacao = $_POST['classificacao'];
-$evento = new Evento();
+$nome=$_POST['nome'];
+$dataInicio=$_POST['dataInicio'];
+$dataTermino=$_POST['dataTermino'];
+$precoMasc=$_POST['precoMasc'];
+$precoFem=$_POST['precoFem'];
+$facebookEventPage=$_POST['facebookEventPage'];
+$descricao=$_POST['descricao'];
+$numeroIngressos=$_POST['numeroIngressos'];
+$horaInicio=$_POST['horaInicio'];
+$minutoInicio=$_POST['minutoInicio'];
+$minutoTermino=$_POST['minutoTermino'];
+$horaTermino=$_POST['horaTermino'];
+$organizadorId=$_SESSION['userId'];
+$classificacao=$_POST['classificacao'];
+$evento= new Evento();
 
 require_once 'recebe_upload_evento.php';
 
@@ -39,6 +39,16 @@ $evento->setDescricao($descricao);
 $evento->setOrganizador($organizadorId);
 $evento->setClassificacao($classificacao);
 
-$_SESSION['eventoid'] = $evento->persist();
+$validator= new ValidaCadastro();
+$validator->validarCampo("Nome",$nome);
+$validator->checkData($dataInicio);
+$validator->checkData($dataTermino);
+$validator->checktime($horaInicio, $minutoInicio);
+$validator->checktime($horaTermino, $minutoTermino);
+$validator->validarPreco($precoMasc);
+$validator->validarPreco($precoFem);
+$validator->validarVaga($numeroIngressos);
+
+$_SESSION['eventoid']=$evento->persist();
 header("Location:../cadastrar-evento-local.php");
 ?>
