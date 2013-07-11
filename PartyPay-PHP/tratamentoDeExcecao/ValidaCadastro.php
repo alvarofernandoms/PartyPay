@@ -17,7 +17,7 @@ class ValidaCadastro {
     var $msg = array();
 
     // Mensagens de erro
-    function mensagens($num, $campo) {
+    public function mensagens($num, $campo) {
 
         $this->msg[0] = "Preencha o campo com um email válido <br />"; // EMAIL
         $this->msg[1] = "CEP com formato inválido (Ex: XXXXX-XXX) <br />"; // CEP
