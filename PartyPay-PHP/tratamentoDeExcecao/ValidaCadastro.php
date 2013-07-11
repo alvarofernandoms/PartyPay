@@ -31,6 +31,7 @@ class ValidaCadastro {
         //$this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
         $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
         $this->msg[11] = "Minuto em formato inválido <br />"; //Minuto
+        $this->msg[12] = "Informe um preço válido <br />"; //Preço
         return $this->msg[$num];
     }
 
@@ -118,13 +119,13 @@ class ValidaCadastro {
         echo $this->mensagens(11, 'hora', null, null);
         exit();
     }
-    if(!preg_match ("^[0-23]{2}$", $hora))
+    if(!preg_match ('/^[0-23]{2,2}?$/', $hora))
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(3, 'hora', null, null);
         exit();
     }
-    if(!preg_match ("^[0-59]{2}$", $minuto))
+    if(!preg_match ('/^[0-59]{2,2}?$/', $minuto))
     {
         header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(11, 'hora', null, null);
@@ -143,7 +144,13 @@ class ValidaCadastro {
 function validarPreco($preco) {
     if(!is_numeric($preco))
     {
-        echo $this->mensagens(3, 'hora', null, null);
+        echo $this->mensagens(12, 'hora', null, null);
+        exit();
+    }
+    elseif($preco < 0)
+    {
+        echo $this->mensagens(12, 'hora', null, null);
+        exit();
     }
 }
 

@@ -45,6 +45,8 @@ $validator->checkData($dataInicio);
 $validator->checkData($dataTermino);
 $validator->checktime($horaInicio, $minutoInicio);
 $validator->checktime($horaTermino, $minutoTermino);
+$validator->validarPreco($precoMasc);
+$validator->validarPreco($precoFem);
 
 $_SESSION['eventoid']=$evento->persist();
 header("Location:../cadastrar-evento-local.php");
