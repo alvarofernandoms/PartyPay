@@ -43,6 +43,8 @@ $validator= new ValidaCadastro();
 $validator->validarCampo("Nome",$nome);
 $validator->checkData($dataInicio);
 $validator->checkData($dataTermino);
+$validator->checktime($horaInicio, $minutoInicio);
+$validator->checktime($horaTermino, $minutoTermino);
 
 $_SESSION['eventoid']=$evento->persist();
 header("Location:../cadastrar-evento-local.php");

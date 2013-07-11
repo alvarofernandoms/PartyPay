@@ -22,7 +22,7 @@ class ValidaCadastro {
         $this->msg[0] = "Preencha o campo com um email válido <br />"; // EMAIL
         $this->msg[1] = "CEP com formato inválido (Ex: XXXXX-XXX) <br />"; // CEP
         $this->msg[2] = "Data em formato inválido, informe data como (Ex: DD/MM/AAAA) <br />"; // DATA
-        $this->msg[3] = "Hora em formato inválido (Ex: XX:XX) <br />"; // HORA
+        $this->msg[3] = "Hora em formato inválido <br />"; // HORA
         $this->msg[4] = "Telefone inválido (Ex: 01433333333) <br />"; // TELEFONE
         $this->msg[5] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
         $this->msg[6] = "Preencha o campo " . $campo . " com numeros <br />"; // APENAS NUMEROS
@@ -30,6 +30,7 @@ class ValidaCadastro {
         //$this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
         //$this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
         $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
+        $this->msg[11] = "Minuto em formato inválido <br />"; //Minuto
         return $this->msg[$num];
     }
 
@@ -82,8 +83,25 @@ class ValidaCadastro {
             exit();
         }
  
-   list($dd,$mm,$yy) = explode("/",$date);
-   if ($dd!="" && $mm!="" && $yy!="")
+
+   //@list($dd,$mm,$yy) = preg_split('/[-./ ]/', $date);  explode("/",$date);
+  if (!preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}$/', $date))
+  {
+      echo $this->mensagens(2, 'data', null, null);
+            exit();
+  }
+  $data = explode("/", $date);
+  $d = $data[0];
+  $m = $data[1];
+  $y = $data[2];
+  $result = checkdate($m, $d, $y);
+  if($result == 0)
+  {
+       echo $this->mensagens(2, 'data', null, null);
+            exit();
+  }
+   
+   /*if ($dd!="" && $mm!="" && $yy!="")
    {
       if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
       {
@@ -97,20 +115,36 @@ class ValidaCadastro {
       }
    }  
    echo $this->mensagens(2, 'data', null, null);
-   exit();
+   exit();*/
 }
 
     // VALIDAR HORA (23:59)
-    function checktime($time)
+    function checktime($hora, $minuto)
 {
-   list($hour,$minute) = explode(':',$time);
+    if(is_numeric($hora))
+    {
+        echo $this->mensagens(3, 'hora', null, null);
+    }
+    if(is_numeric($minuto))
+    {
+        echo $this->mensagens(11, 'hora', null, null);    
+    }
+    if(!preg_match ("^[0-23]{2}$", $hora))
+    {
+        echo $this->mensagens(3, 'hora', null, null);
+    }
+    if(!preg_match ("^[0-59]{2}$", $minuto))
+    {
+        echo $this->mensagens(3, 'hora', null, null);
+    }
+   /*list($hour,$minute) = explode(':',$time);
  
    if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60)
    {
       return true;
    }
    else
-       return $this->mensagens(3, 'hora', null, null);
+       return $this->mensagens(3, 'hora', null, null);*/
 } 
 
     // Validar Telefone (01432363810)
