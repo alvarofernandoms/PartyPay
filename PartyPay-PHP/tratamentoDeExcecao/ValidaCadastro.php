@@ -106,21 +106,29 @@ class ValidaCadastro {
     // VALIDAR HORA (23:59)
     function checktime($hora, $minuto)
 {
-    if(is_numeric($hora))
+    if(!is_numeric($hora))
     {
+        header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(3, 'hora', null, null);
+        exit();
     }
-    if(is_numeric($minuto))
+    if(!is_numeric($minuto))
     {
-        echo $this->mensagens(11, 'hora', null, null);    
+        header("refresh:5;url=../cadastrarEvento.php");
+        echo $this->mensagens(11, 'hora', null, null);
+        exit();
     }
     if(!preg_match ("^[0-23]{2}$", $hora))
     {
+        header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(3, 'hora', null, null);
+        exit();
     }
     if(!preg_match ("^[0-59]{2}$", $minuto))
     {
-        echo $this->mensagens(3, 'hora', null, null);
+        header("refresh:5;url=../cadastrarEvento.php");
+        echo $this->mensagens(11, 'hora', null, null);
+        exit();
     }
    /*list($hour,$minute) = explode(':',$time);
  
@@ -131,6 +139,15 @@ class ValidaCadastro {
    else
        return $this->mensagens(3, 'hora', null, null);*/
 } 
+
+function validarPreco($preco) {
+    if(!is_numeric($preco))
+    {
+        echo $this->mensagens(3, 'hora', null, null);
+    }
+}
+
+
 
     // Validar Telefone (01432363810)
     function validarTelefone($telefone) {
