@@ -43,7 +43,6 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testValidarEmail().
      */
     public function testValidarEmailValido() {
-        $this->markTesteIncomplete('Teste falha ao buscar no banco');
         $actual= $this->object->validarEmail("cotrim149@gmail.com");
         $expected=NULL;
         $this->assertEquals($expected, $actual);
@@ -52,7 +51,8 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testValidarEmailNaoValido(){
-        $this->markTesteIncomplete('Este teste será implementado mais tarde');
+        //$this->markTestIncomplete('Este teste será implementado mais tarde');
+        
     }
     
     /**

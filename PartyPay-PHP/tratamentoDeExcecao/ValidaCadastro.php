@@ -11,7 +11,7 @@
  * @author Fagner-note
  */
 
-include '../model/DAC/PessoaDAC.php';
+include '../../model/DAC/PessoaDAC.php';
 
 class ValidaCadastro {
  

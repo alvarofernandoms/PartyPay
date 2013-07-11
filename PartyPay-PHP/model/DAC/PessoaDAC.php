@@ -53,8 +53,8 @@ class PessoaDAC {
 
     public static function verifiqueDispo($email) {
         include_once 'conexao.php';
-        $sql = "SELECT email FROM pessoas WHERE email=$email";
-        $result = mysql_query($sql);
+        $sql = "SELECT email FROM pessoas WHERE email='$email'";
+        $result = mysql_query($sql) or die(mysql_error());
         mysql_close($conexao);
         if ($result == 0) {
             return 1;
