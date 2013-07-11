@@ -33,7 +33,7 @@ $telefone = $_SESSION['telefoneContato'];
 			      <li class="active"><a href="index.php">Home</a></li>
 			      <li><a href="#">Sobre</a></li>
 			      <?php if (!isset($_SESSION['id'])) { ?>
-                              <li><a href="#myModal" data-toggle="modal">Entrar</a</li>
+                              <li><a href="#myModal" data-toggle="modal">Entrar</a></li>
                               <li><a href="cadastrarPessoa.php">Sign up</a></li>
                               <?php } else{}?>
 			    </ul>
@@ -53,7 +53,7 @@ $telefone = $_SESSION['telefoneContato'];
 				</div>
 				<?php } else{}?>
 			  </div>
-			  <!-- Modal -->
+			  <!-- Modal Login-->
 				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				  <div class="modal-header">
 				    <button type="button" class="close" data-dismiss="modal">x</button>
@@ -61,16 +61,35 @@ $telefone = $_SESSION['telefoneContato'];
 				  </div>
 				  <div class="modal-body">
 				    <form method="post" action="controller/processaLogin.php" name="login_form">
-				      <p><input type="text" class="span3" name="email" id="email" placeholder="Email"></p>
-				      <p><input type="password" class="span3" name="password" placeholder="password"></p>
+				      <p><input type="email" class="span3" name="email" id="email" placeholder="Email" required></p>
+				      <p><input type="password" class="span3" name="password" placeholder="password" required></p>
 				      <p><button type="submit" class="btn btn-primary">Entrar</button>
-				        <a href="#">Esqueci a senha</a>
+				      <a href="#recuperarSenha" data-toggle="modal" onclick="$('#myModal').modal('hide')">Esqueci a senha</a>
 				      </p>
 				    </form>
 				  </div>
 				  <div class="modal-footer">
 				    N&atilde;o tem conta?
-				    <a href="#" class="btn btn-primary">Registrar</a>
+				    <a href="cadastrarPessoa.php" class="btn btn-primary">Registrar</a>
+				  </div>
+				</div>
+				<!-- Modal Recuperar-->
+				<div id="recuperarSenha" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal">x</button>
+				    <h3>Login</h3>
+				  </div>
+				  <div class="modal-body">
+				    <form method="post" action="controller/EnviarEmailNovaSenha.php" name="login_form">
+				      <p>Email de recupera&ccedil;&atilde;o</p>
+				      <p><input type="text" class="span3" name="email" id="email" placeholder="Email" required></p>
+				      <p><button type="submit" class="btn btn-primary">Enviar</button>
+				      </p>
+				    </form>
+				  </div>
+				  <div class="modal-footer">
+				    J&aacute; tem conta? 
+				    <a href="cadastrarPessoa.php" class="btn btn-primary">Registrar</a>
 				  </div>
 				</div>
 			</div>
