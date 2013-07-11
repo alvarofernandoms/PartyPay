@@ -1,8 +1,8 @@
 <?php
-if(isset($_SESSION['id'])){
+
+if (isset($_SESSION['id'])) {
     
-}else{
-    
+} else {
     header("Location:../index.php");
 }
 ?>

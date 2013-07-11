@@ -1,8 +1,6 @@
 <?php
 
-
 class LocalDAC {
-    
 
     public static function persist(Local $local) {
         include_once 'conexao.php';
@@ -20,12 +18,12 @@ class LocalDAC {
                 . $local->getPais() . "','"
                 . $local->getFotos() . "','"
                 . $local->getEstado() . "','"
-                .$local->getMiniatura()."')";
+                . $local->getMiniatura() . "')";
         mysql_query($sql) or die(mysql_error());
-        $RES=mysql_query("SELECT LAST_INSERT_ID()");
-        $mat=mysql_fetch_array($RES);
+        $RES = mysql_query("SELECT LAST_INSERT_ID()");
+        $mat = mysql_fetch_array($RES);
         mysql_close($conexao);
-        
+
         return $mat['0'];
     }
 

@@ -1,25 +1,7 @@
-<?php require_once('header.php');
-	
-	include 'model/Pessoa.php';
-
-	session_start('login');
-	$_SESSION['id'] = 6;
-
-	$fulano = new Pessoa;
-	$fulano->construaPorId($_SESSION['id']);
-
-	$primeiroNome = $fulano->getPrimeiroNome();
-	$sobreNome = $fulano->getSobreNome();
-	$email = $fulano->getEmail();
-	$sexo = $fulano->getSexo();
-	$cpf = $fulano->getCpf();
-	$telefone = $fulano->getTelefoneContato();
-
-?>
+<?php require_once('header.php'); ?>
 		<section class="container">
     		<h3>Editar dados</h3>
-			<div class="row">
-				<h3>"<?php  echo $_SESSION['id'];?>"</h3>
+			<div class="row"><h3><?php echo $_SESSION['id']; ?></h3>
 				<form class="form-horizontal" method="post" action="controller/processaEditaPessoa.php" enctype="multipart/form-data">
 				  <div class="control-group">
 				    <label class="control-label" for="nome">Primeiro Nome</label>
