@@ -31,7 +31,7 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
     /**
      * @covers ValidaCadastro::mensagens
      */
-    public function testMensagens() {
+    public function testMensagenNumero6() {
         // Remove the following lines when you implement this test.
        $atual = $this->object->mensagens(6, 'nome');
        $expected = "Preencha o campo nome com numeros <br />";
