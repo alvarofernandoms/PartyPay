@@ -32,6 +32,7 @@ class ValidaCadastro {
         $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
         $this->msg[11] = "Minuto em formato inválido <br />"; //Minuto
         $this->msg[12] = "Informe um preço válido <br />"; //Preço
+        $this->msg[13] = "Informe um número de vagas válida <br />"; //Vagas
         return $this->msg[$num];
     }
 
@@ -144,16 +145,33 @@ class ValidaCadastro {
 function validarPreco($preco) {
     if(!is_numeric($preco))
     {
+        header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(12, 'hora', null, null);
         exit();
     }
     elseif($preco < 0)
     {
+        header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(12, 'hora', null, null);
         exit();
     }
 }
 
+function validarVaga($vaga)
+{
+    if(!is_numeric($vaga))
+    {
+        header("refresh:5;url=../cadastrarEvento.php");
+        echo $this->mensagens(13, 'hora', null, null);
+        exit();
+    }
+    elseif($vaga < 0)
+    {
+        header("refresh:5;url=../cadastrarEvento.php");
+        echo $this->mensagens(13, 'hora', null, null);
+        exit();
+    }
+}
 
 
     // Validar Telefone (01432363810)
