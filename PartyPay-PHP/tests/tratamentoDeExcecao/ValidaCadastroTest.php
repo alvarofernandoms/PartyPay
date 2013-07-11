@@ -31,22 +31,24 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
     /**
      * @covers ValidaCadastro::mensagens
      */
-    public function testMensagenNumero6() {
+    public function testMensagemNumero6() {
         // Remove the following lines when you implement this test.
-       $atual = $this->object->mensagens(6, 'nome');
+       $actual = $this->object->mensagens(6, 'nome');
        $expected = "Preencha o campo nome com numeros <br />";
-        $this->assertEquals($expected,$atual);
+        $this->assertEquals($expected,$actual);
     }
 
     /**
      * @covers ValidaCadastro::validarEmail
      * @todo   Implement testValidarEmail().
      */
-    public function testValidarEmail() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+    public function testValidarEmailValido() {
+        
+        $actual= $this->object->validarEmail('cotrim149@gmail.com');
+        $expected=NULL;
+        $this->assertEquals($expected, $actual);
+        
+        
     }
 
     /**

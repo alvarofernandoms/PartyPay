@@ -43,12 +43,14 @@ class ValidaCadastro {
         if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)){
             header("refresh:5;url=../cadastrarPessoa.php");
             echo $this->mensagens(0, 'email', null, null);
+            return $this->mensagens(0, 'email', null, null);
             exit;
             //return $this->mensagens(0, 'email', null, null);
         } else if (PessoaDAC::verifiqueDispo($email) == 1) {
              {
                 header("refresh:5;url=../cadastrarPessoa.php");
                 echo $this->mensagens(10, 'email', null, null);
+                return $this->mensagens(10, 'email', null, null);
                 exit;
             }
         }
