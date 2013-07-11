@@ -17,6 +17,11 @@ $tbl_name = "pessoas"; // Nome da Tabela
 mysql_connect("$host", "$username", "$password") or die("cannot connect");
 mysql_select_db("$db_name") or die("Banco não encontrado.");
 
+if (isset($_SESSION['email'])) {
+	$_POST['email'] = $_SESSION['email'];
+	$_POST['password'] = $_SESSION['password'];
+}
+
 // email e password da FORM que vem do index.php
 $email = addslashes($_POST['email']);
 $mypassword = addslashes($_POST['password']);

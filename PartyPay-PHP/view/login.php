@@ -21,8 +21,6 @@ $_SESSION['sexo'] = $sexo;
 $_SESSION['cpf'] = $cpf;
 $_SESSION['telefoneContato'] = $telefone;
 
-echo $primeiroNome . $_SESSION['sobreNome'];
-
 header("location: index.php");
 
 ?>
