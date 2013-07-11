@@ -10,7 +10,7 @@ session_start();
 // Eu só não sei como! HuEHEhEHueheu! BR? BR? BR!
 $host = "localhost"; // Host name 
 $username = "root"; // Mysql username - MUDE AQUI O USERNAME DO SEU MYSQL
-$password = "123456"; // Mysql password - MUDE AQUI A SENHA DO SEU MYSQL
+$password = ""; // Mysql password - MUDE AQUI A SENHA DO SEU MYSQL
 $db_name = "payparty"; // Nome do Banco de Dados
 $tbl_name = "pessoas"; // Nome da Tabela
 // Conexão com o server e com o Banco de dados.

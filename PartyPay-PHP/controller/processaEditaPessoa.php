@@ -4,7 +4,7 @@ include '../model/Pessoa.php';
 include '../tratamentoDeExcecao/ValidaCadastro.php';
 include 'gerarCodConfirmacao.php';
 
-session_start('login');
+session_start();
 
 $primeiroNome = addslashes($_POST['primeiroNome']);
 $sobreNome = addslashes($_POST['sobreNome']);
@@ -41,6 +41,18 @@ $pessoa->setCodConfirmacao($codigo);
 //$pessoa->updateInfo("sobreNome", "sobreNome");
 
 $pessoa->atualizar();
+
+unset($_SESSION['primeiroNome']);
+unset($_SESSION['sobreNome']);
+unset($_SESSION['sexo']);
+unset($_SESSION['cpf']);
+unset($_SESSION['telefoneContato']);
+
+$_SESSION['primeiroNome'] = $primeiroNome;
+$_SESSION['sobreNome'] = $sobreNome;
+$_SESSION['sexo'] = $sexo;
+$_SESSION['cpf'] = $cpf;
+$_SESSION['telefoneContato'] = $telefoneContato;
 
 echo "efetuado com sucesso " . $id;
 // header("Location:../controller/EnviarEmailConfirmacao.php?e=".$_POST['email']."&cod=".$codigo);
