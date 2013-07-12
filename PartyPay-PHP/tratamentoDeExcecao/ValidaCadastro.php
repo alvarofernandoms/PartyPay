@@ -11,7 +11,7 @@
  * @author Fagner-note
  */
 class ValidaCadastro {
-
+ 
     var $campo;
     var $valor;
     var $msg = array();
@@ -29,14 +29,25 @@ class ValidaCadastro {
         $this->msg[7] = "Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
         $this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
         $this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
-
+        $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
         return $this->msg[$num];
     }
 
     // Validar Email
     function validarEmail($email) {
-        if (!eregi("^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$", $email)) {
-            return $this->mensagens(0, 'email', null, null);
+        //if (!preg_match("/^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$/", $email)) {
+        //if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)){
+            header("refresh:5;url=../cadastrarPessoa.php");
+            echo $this->mensagens(0, 'email', null, null);
+            exit;
+            //return $this->mensagens(0, 'email', null, null);
+        } else if (PessoaDAC::verifiqueDispo($email) == 1) {
+             {
+                header("refresh:5;url=../cadastrarPessoa.php");
+                echo $this->mensagens(10, 'email', null, null);
+                exit;
+            }
         }
     }
 
@@ -45,40 +56,46 @@ class ValidaCadastro {
         if (!eregi("^[0-9]{5}-[0-9]{3}$", $cep)) {
             return $this->mensagens(1, 'cep', null, null);
         }
-    }
-
+    } 
+    
     // Validar Datas (DD/MM/AAAA)
     function validarData($data) {
-        if (!eregi("^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
-            return $this->mensagens(2, 'data', null, null);
-        }
-    }
-
+         if (!eregi("^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) { 
+             return $this->mensagens(2, 'data', null, null);
+         }
+    } 
+    
     // Validar Datas (DD/MM/AAAA)
-    function checkData($date) {
-        if (!isset($date) || $date == "") {
-            return $this->mensagens(2, 'data', null, null);
-        }
-
-        list($dd, $mm, $yy) = explode("/", $date);
-        if ($dd != "" && $mm != "" && $yy != "") {
-            if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd)) {
-                return checkdate($mm, $dd, $yy);
-            }
-        }
-        return $this->mensagens(2, 'data', null, null);
-    }
+    function checkData($date)
+{
+   if (!isset($date) || $date=="")
+   {
+      return $this->mensagens(2, 'data', null, null);
+   }
+ 
+   list($dd,$mm,$yy) = explode("/",$date);
+   if ($dd!="" && $mm!="" && $yy!="")
+   {
+      if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
+      {
+         return checkdate($mm,$dd,$yy);
+      }
+   }  
+   return $this->mensagens(2, 'data', null, null);
+}
 
     // VALIDAR HORA (23:59)
-    function checktime($time) {
-        list($hour, $minute) = explode(':', $time);
-
-        if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60) {
-            return true;
-        }
-        else
-            return $this->mensagens(3, 'hora', null, null);
-    }
+    function checktime($time)
+{
+   list($hour,$minute) = explode(':',$time);
+ 
+   if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60)
+   {
+      return true;
+   }
+   else
+       return $this->mensagens(3, 'hora', null, null);
+} 
 
     // Validar Telefone (01432363810)
     function validarTelefone($telefone) {
