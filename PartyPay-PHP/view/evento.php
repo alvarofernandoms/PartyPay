@@ -1,7 +1,18 @@
-<?php require_once ('header.php'); ?>
+<?php require_once ('header.php'); 
+
+include "model/Evento.php";
+
+$evento = new Evento();
+
+$id = $_GET['id'];
+$evento->eventoPorID($id);
+
+$nomeEvento = $evento->getNome();
+
+?>
 
 		<div class="container">
-					<h1>Evento x</h1>
+					<h1><?php echo $nomeEvento; ?></h1>
 			<div class="row">
 				<div class="span8 conteudo">
 					<img src="view/imgs/banner.jpg" alt="">

@@ -30,13 +30,13 @@
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Complemento</label>
 				    <div class="controls">
-				      <input type="text" name="complemento" placeholder="Complemento" required>
+				      <input type="text" name="complemento" placeholder="Complemento" >
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Bairro</label>
 				    <div class="controls">
-				      <input type="text" name="bairro" placeholder="Bairro" required>
+				      <input type="text" name="bairro" placeholder="Bairro" >
 				    </div>
 				  </div>
 				  <div class="control-group">
@@ -48,13 +48,13 @@
 				  <div class="control-group">
 				    <label class="control-label" for="numero">CEP</label>
 				    <div class="controls">
-				      <input type="text" id="cep" name="cep" placeholder="CEP" required>
+				      <input type="text" id="cep" name="cep" placeholder="CEP" >
 				    </div>
 				  </div>
 				  <div class="control-group">
 				    <label class="control-label" for="numero">Pa&iacute;s</label>
 				    <div class="controls">
-				      <input type="text" name="pais" placeholder="Pa&iacute;s" required>
+				      <input type="text" name="pais" placeholder="Pa&iacute;s" >
 				    </div>
 				  </div>
 				  <div class="control-group">

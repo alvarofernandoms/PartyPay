@@ -47,4 +47,6 @@ $localId = $local->persist();
 EventoLocal::persist($idEvento, $localId);
 
 echo "cadastro efetuado";
+
+header('evento.php')
 ?>
