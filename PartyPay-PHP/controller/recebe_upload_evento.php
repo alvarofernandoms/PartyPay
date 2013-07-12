@@ -3,7 +3,7 @@
 require 'canvas.php';
 // Pasta onde o arquivo vai ser salvo
 
-$_UP['pasta'] = '../view/images/';
+$_UP['pasta'] = 'view/images/';
 
 // Tamanho máximo do arquivo (em Bytes)
 
