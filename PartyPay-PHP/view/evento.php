@@ -1,9 +1,9 @@
 <?php require_once ('header.php'); ?>
 
 		<div class="container">
-			<div class="row">
-				<div class="span8">
 					<h1>Evento x</h1>
+			<div class="row">
+				<div class="span8 conteudo">
 					<img src="view/imgs/banner.jpg" alt="">
 
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam doloribus dolores cumque optio recusandae velit eum beatae dicta ex ea aut fugiat tenetur consequuntur id asperiores amet eos. At reprehenderit!</p>

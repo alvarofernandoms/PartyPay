@@ -25,9 +25,8 @@
 	top: 140px;
 	right: 80px;
 }
-input[type="text"]{
+input[type="text"], input[type="email"], input[type="password"]{
 	padding:10px;
-	margin: 5px;
 }
 
 input[type="number"]{
