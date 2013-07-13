@@ -26,11 +26,9 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Additional headers
-$headers .= 'From: PartyPay <no-reply@partypay.com>' . "\r\n";
+$headers = 'From: PartyPay <no-reply@partypay.com>' . "\r\n";
 
 // Mail it
 mail($to, $subject, $message, $headers);
-
-mysql_close($conexao);
 
 ?>
