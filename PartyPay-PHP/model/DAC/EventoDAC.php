@@ -55,7 +55,6 @@ class EventoDAC {
         $sql = "SELECT * FROM eventos WHERE id=$id";
         $resultado = mysql_query($sql) or die(mysql_error());
         $row = mysql_fetch_array($resultado);
-        mysql_close($conexao);
 
         if (mysql_num_rows($resultado)==1){
             $evento->setNome($row['nome']);
@@ -78,6 +77,7 @@ class EventoDAC {
         }else{
             return NULL;
         }
+        mysql_close($conexao);
     }
 
 }

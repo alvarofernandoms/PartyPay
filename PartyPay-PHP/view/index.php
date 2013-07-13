@@ -1,4 +1,6 @@
-<?php require_once 'header.php'; ?>
+<?php   require_once 'header.php'; 
+        include "model/Evento.php";
+?>
             <div id="hero" class="">
                 <ul>
                     <li><img src="view/img/slide.jpg" alt="" /></li>
@@ -20,51 +22,44 @@
             <h3>Eventos em destaque</h3>
             <div class="row">
                 <ul class="thumbnails">
-                 <?php include "model/Evento.php";
-                       include "controller/functions.php";
+                 <?php 
 
-                            $evento = new Evento;
-                            $evento->eventoPorId(20);
-                            $nome = $evento->getNome();
+                    $num = ultimoEvento();
+
+                    for($i=0; $i<3; $i++){
+                        $evento = new Evento;
+                        $evento->eventoPorId($num-$i);
+                        $nome = $evento->getNome();
                 ?>
 
                     <li class="span4">
-                        <a href="evento.php?id=<?php echo ultimoEvento(); ?>" class="thumbnail">
+                        <a href="evento.php?id=<?php echo (ultimoEvento()-$i); ?>" class="thumbnail">
                             <img src="view/img/3.jpg" alt="">
                             <p><?php echo $nome; ?></p>
                         </a>
                     </li>
-                    <li class="span4">
-                        <a href="evento.php?id=<?php echo (ultimoEvento()-1); ?>" class="thumbnail">
-                            <img src="view/img/3.jpg" alt="">
-                            <p><?php echo $nome; ?></p>
-                        </a>
-                    </li>
-                    <li class="span4">
-                        <a href="evento.php?id=<?php echo (ultimoEvento()-2); ?>" class="thumbnail">
-                            <img src="view/img/3.jpg" alt="">
-                            <p><?php echo $nome; ?></p>
-                        </a>
-                    </li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="row">
                 <ul class="thumbnails">
+                 <?php 
+
+                    $num = ultimoEvento();
+
+                    for($i=3; $i<6; $i++){
+                        $evento = new Evento;
+                        $evento->eventoPorId($num-$i);
+                        $nome = $evento->getNome();
+                ?>
+
                     <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="view/img/4.jpg" alt="">
+                        <a href="evento.php?id=<?php echo (ultimoEvento()-$i); ?>" class="thumbnail">
+                            <img src="view/img/3.jpg" alt="">
+                            <p><?php echo $nome; ?></p>
                         </a>
                     </li>
-                    <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="view/img/5.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="view/img/6.jpg" alt="">
-                        </a>
-                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </section>

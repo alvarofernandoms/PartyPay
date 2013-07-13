@@ -52,7 +52,6 @@ class PessoaDAC {
         $sql = "SELECT * FROM pessoas WHERE id=$id";
         $resultado = mysql_query($sql) or die(mysql_error());
         $row = mysql_fetch_array($resultado);
-        mysql_close($conexao);
 
         if (mysql_num_rows($resultado)==1){
            $pessoa->setPrimeiroNome($row['primeiroNome']);
@@ -67,6 +66,7 @@ class PessoaDAC {
         }else{
             return NULL;
         }
+        mysql_close($conexao);
     }
 
     public static function verifiqueDispo($email) {

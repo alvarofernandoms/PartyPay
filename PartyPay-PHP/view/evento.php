@@ -2,6 +2,9 @@
 
 include "model/Evento.php";
 
+if(isset($evento)){
+	unset($evento);
+}
 $evento = new Evento();
 
 $idEvento = $_GET['id'];

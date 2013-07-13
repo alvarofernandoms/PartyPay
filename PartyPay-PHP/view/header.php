@@ -1,5 +1,6 @@
 <?php
 include 'model/Pessoa.php';
+include "controller/functions.php";
 
 session_start();
 
