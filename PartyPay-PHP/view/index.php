@@ -20,19 +20,30 @@
             <h3>Eventos em destaque</h3>
             <div class="row">
                 <ul class="thumbnails">
+                 <?php include "model/Evento.php";
+                       include "controller/functions.php";
+
+                            $evento = new Evento;
+                            $evento->eventoPorId(20);
+                            $nome = $evento->getNome();
+                ?>
+
                     <li class="span4">
-                        <a href="#" class="thumbnail">
+                        <a href="evento.php?id=<?php echo ultimoEvento(); ?>" class="thumbnail">
                             <img src="view/img/3.jpg" alt="">
+                            <p><?php echo $nome; ?></p>
                         </a>
                     </li>
                     <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="view/img/1.jpg" alt="">
+                        <a href="evento.php?id=<?php echo (ultimoEvento()-1); ?>" class="thumbnail">
+                            <img src="view/img/3.jpg" alt="">
+                            <p><?php echo $nome; ?></p>
                         </a>
                     </li>
                     <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="view/img/2.jpg" alt="">
+                        <a href="evento.php?id=<?php echo (ultimoEvento()-2); ?>" class="thumbnail">
+                            <img src="view/img/3.jpg" alt="">
+                            <p><?php echo $nome; ?></p>
                         </a>
                     </li>
                 </ul>

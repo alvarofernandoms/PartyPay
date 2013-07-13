@@ -5,15 +5,15 @@ session_start();
 
 if (isset($_SESSION['id'])) {
 
-
-$primeiroNome = $_SESSION['primeiroNome'];
-$sobreNome = $_SESSION['sobreNome'];
-$email = $_SESSION['email'];
-$sexo = $_SESSION['sexo'];
-$cpf = $_SESSION['cpf'];
-$telefone = $_SESSION['telefoneContato'];
+	$primeiroNome = $_SESSION['primeiroNome'];
+	$telefone = $_SESSION['telefoneContato'];
+	$sobreNome = $_SESSION['sobreNome'];
+	$email = $_SESSION['email'];
+	$sexo = $_SESSION['sexo'];
+	$cpf = $_SESSION['cpf'];
 
 } ?>
+
 <!DOCTYPE html>
 <html>
   <head>

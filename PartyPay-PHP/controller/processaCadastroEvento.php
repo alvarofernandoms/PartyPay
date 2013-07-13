@@ -3,8 +3,6 @@
 require_once '../model/Evento.php';
 
 session_start();
-$_SESSION['userId'] = "3";
-
 
 
 $nome = $_POST['nome'];
@@ -19,7 +17,7 @@ $horaInicio = $_POST['horaInicio'];
 $minutoInicio = $_POST['minutoInicio'];
 $minutoTermino = $_POST['minutoTermino'];
 $horaTermino = $_POST['horaTermino'];
-$organizadorId = $_SESSION['userId'];
+$organizadorId = $_SESSION['id'];
 $classificacao = $_POST['classificacao'];
 $evento = new Evento();
 

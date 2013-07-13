@@ -50,6 +50,36 @@ class EventoDAC {
         mysql_close($conexao);
     }
 
+    public static function recupere($evento, $id) {
+        include_once 'conexao.php';
+        $sql = "SELECT * FROM eventos WHERE id=$id";
+        $resultado = mysql_query($sql) or die(mysql_error());
+        $row = mysql_fetch_array($resultado);
+        mysql_close($conexao);
+
+        if (mysql_num_rows($resultado)==1){
+            $evento->setNome($row['nome']);
+            $evento->setDataInicio($row['dataInicio']);
+            $evento->setDataTermino($row['dataTermino']);
+            $evento->setImagem($row['imagem']);
+            $evento->setPrecoMasc($row['precoMasc']);
+            $evento->setPrecoFem($row['precoFem']);
+            $evento->setOrganizador($row['organizadorID']);
+            $evento->setFacebookEventPage($row['facebookEventPage']);
+            $evento->setDataCriacao($row['dataCriacao']);
+            $evento->setDescricao($row['descricao']);
+            $evento->setNumeroIngressos($row['numeroIngressos']);
+            $evento->setHoraInicio($row['horaInicio']);
+            $evento->setHoraTermino($row['horaTermino']);
+            $evento->setMiniatura($row['miniatura']);
+            $evento->setClassificacao($row['classificacao']);
+
+           return 1;
+        }else{
+            return NULL;
+        }
+    }
+
 }
 
 ?>

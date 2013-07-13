@@ -20,6 +20,7 @@ class Evento {
     private $horaTermino;
     private $miniatura; //nao precisa
     private $classificacao;
+    private $Id;
 
     public function getClassificacao() {
         return $this->classificacao;
@@ -27,6 +28,14 @@ class Evento {
 
     public function setClassificacao($classificacao) {
         $this->classificacao = $classificacao;
+    }
+
+    public function getId() {
+        return $this->Id;
+    }
+
+    public function setId($Id) {
+        $this->Id = $Id;
     }
 
     public function getMiniatura() {
@@ -163,6 +172,10 @@ class Evento {
 
     public function delete() {
         EventoDAC::delete($this);
+    }
+
+    public function eventoPorId($Id){
+        EventoDAC::recupere($this, $Id);
     }
 
 }

@@ -37,7 +37,7 @@
                     <div class="control-group">
                         <label class="control-label" for="facebookEventPage">Facebook</label>
                         <div class="controls">
-                            <input type="text" name="facebookEventPage" placeholder="Endereco do evento no Facebook" required>
+                            <input type="text" name="facebookEventPage" placeholder="Endereco do evento no Facebook">
                         </div>
                     </div>
                     <div class="control-group">

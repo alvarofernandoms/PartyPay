@@ -1,18 +1,43 @@
-<?php require_once ('header.php'); ?>
+<?php require_once ('header.php'); 
+
+include "model/Evento.php";
+
+$evento = new Evento();
+
+$idEvento = $_GET['id'];
+$evento->eventoPorID($idEvento);
+
+$nomeEvento = $evento->getNome();
+
+$dataInicio = $evento->getDataInicio();
+$dataTermino = $evento->getDataTermino();
+$imagem = $evento->getImagem();
+$precoMasc = $evento->getPrecoMasc();
+$precoFem = $evento->getPrecoFem();
+$organizador = $evento->getOrganizador();
+$facebook = $evento->getFacebookEventPage();
+$dataCriacao = $evento->getDataCriacao();
+$descricao = $evento->getDescricao();
+$numeroIngressos = $evento->getNumeroIngressos();
+$horaInicio = $evento->getHoraInicio();
+$horaTermino = $evento->getHoraTermino();
+$miniatura = $evento->getMiniatura();
+$classificacao = $evento->getClassificacao();
+
+?>
 
 		<div class="container">
-					<h1>Evento x</h1>
+					<h1><?php echo $nomeEvento; ?></h1>
 			<div class="row">
 				<div class="span8 conteudo">
-					<img src="view/imgs/banner.jpg" alt="">
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam doloribus dolores cumque optio recusandae velit eum beatae dicta ex ea aut fugiat tenetur consequuntur id asperiores amet eos. At reprehenderit!</p>
+					<img src="<?php echo $imagem; ?>" alt="">
+					<p><?php echo $descricao; ?></p>
 
 				</div>
 				<div class="span4">
 					<div class="data well">
 						<h4>Data</h4>
-						<span class="horario">Sab 29/06/13 - 13:00 as 18:00</span>
+						<span class="horario"><?php echo ("De " . $dataInicio . " at&eacute; " . $dataTermino); ?></span>
 					</div>
 					<div class="Local well">
 						<h4>Local</h4>
