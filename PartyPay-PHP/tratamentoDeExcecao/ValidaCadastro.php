@@ -29,6 +29,7 @@ class ValidaCadastro {
         $this->msg[5] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
         $this->msg[6] = "Preencha o campo " . $campo . " com numeros <br />"; // APENAS NUMEROS
         $this->msg[7] = "Por favor Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
+        $this->msg[8] = "Ano informado e inferior ao ano corrente <br />"; // Data menor que ano corrente
         //$this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
         //$this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
         $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
@@ -72,7 +73,7 @@ class ValidaCadastro {
      * TODO:Refatarar mensagem de return
      * refatorar número mágico em condição if
      */
-    function validarData($data) {
+    /*function validarData($data) {
         //if (!preg_match("/^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
         $data = explode("/", $data);
         $dia = $data[0];
@@ -94,7 +95,7 @@ class ValidaCadastro {
             return $this->mensagens(2, 'data', null, null);
             exit();
         }
-    }
+    }*/
 
     // Validar Datas (DD/MM/AAAA)
     function checkData($date){
@@ -115,6 +116,13 @@ class ValidaCadastro {
         $d = $data[0];
         $m = $data[1];
         $y = $data[2];
+        
+        if ($y < 2013) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(8, 'data', null, null);
+            exit();
+        }
+        
         $result = checkdate($m, $d, $y);
         if($result == 0)
         {
