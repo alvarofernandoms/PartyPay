@@ -31,12 +31,11 @@
                 // Mandando o Email
                     mail($user_email, $subject, $message, $headers);
     
-                echo "Um email foi enviado com sua nova senha!";
+                echo "Uma nova senha foi enviada para seu email!";
         }else{
-                echo "Desculpe! Email inválido!";
+                echo "Desculpe! Email n&atilde;o cadastrado!";
                 
     }
-    mysql_query($sql) or die(mysql_error());
     mysql_close($conexao);
 
 ?>
