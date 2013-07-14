@@ -16,7 +16,6 @@ class PessoaDAC {
         $RES = mysql_query("SELECT LAST_INSERT_ID()");
         $mat = mysql_fetch_array($RES);
         mysql_close($conexao);
-
         return $mat['0'];
     }
 
@@ -73,8 +72,8 @@ class PessoaDAC {
         include_once 'conexao.php';
         $sql = "SELECT email FROM pessoas WHERE email='$email'";
         $result = mysql_query($sql);
-        mysql_close($cn);
-        if (mysql_num_rows($result) === 0) {
+        mysql_close($conexao);
+        if (mysql_num_rows($result) == 0) {
             return 1;
         } else {
             return 0;

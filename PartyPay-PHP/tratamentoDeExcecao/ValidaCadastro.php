@@ -10,7 +10,7 @@
  *
  * @author Fagner-note
  */
-include '../../model/DAC/PessoaDAC.php';
+require_once  '../model/DAC/PessoaDAC.php';
 
 class ValidaCadastro {
 
@@ -50,11 +50,11 @@ class ValidaCadastro {
             //return $this->mensagens(0, 'email', null, null);
         } else{
                      
-            if ( PessoaDAC::verifiqueDispo($email) == 1) {
+            if ( PessoaDAC::verifiqueDispo($email) == 0) {
                 
                 //header("refresh:5;url=../cadastrarPessoa.php");
                 echo $this->mensagens(10, 'email', null, null);
-                return $this->mensagens(10, 'email', null, null);
+                //return $this->mensagens(10, 'email', null, null);
                 exit;
             }
         }
