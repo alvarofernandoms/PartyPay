@@ -11,7 +11,7 @@
  * @author Fagner-note
  */
 
-include '../../model/DAC/PessoaDAC.php';
+include '../model/DAC/PessoaDAC.php';
 
 class ValidaCadastro {
  
@@ -44,7 +44,7 @@ class ValidaCadastro {
         //if (!preg_match("/^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$/", $email)) {
         //if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)){
-            header("refresh:5;url=../cadastrarPessoa.php");
+            //header("refresh:5;url=../cadastrarPessoa.php");
             echo $this->mensagens(0, 'email', null, null);
             return $this->mensagens(0, 'email', null, null);
             exit;
@@ -53,7 +53,7 @@ class ValidaCadastro {
                      
             if ( PessoaDAC::verifiqueDispo($email) == 1) {
                 
-                header("refresh:5;url=../cadastrarPessoa.php");
+                //header("refresh:5;url=../cadastrarPessoa.php");
                 echo $this->mensagens(10, 'email', null, null);
                 return $this->mensagens(10, 'email', null, null);
                 exit;
@@ -104,14 +104,14 @@ class ValidaCadastro {
 {
         if (!isset($date) || $date=="")
         {
-            header("refresh:5;url=../cadastrarEvento.php");
+            //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
             exit();
         }
         
   if (!preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}$/', $date))
   {
-      header("refresh:5;url=../cadastrarEvento.php");
+      //header("refresh:5;url=../cadastrarEvento.php");
       echo $this->mensagens(2, 'data', null, null);
             exit();
   }
@@ -122,7 +122,7 @@ class ValidaCadastro {
   $result = checkdate($m, $d, $y);
   if($result == 0)
   {
-      header("refresh:5;url=../cadastrarEvento.php");
+      //header("refresh:5;url=../cadastrarEvento.php");
        echo $this->mensagens(2, 'data', null, null);
             exit();
   }  
@@ -133,13 +133,13 @@ class ValidaCadastro {
 {
     if(!is_numeric($hora))
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(3, 'hora', null, null);
         exit();
     }
     if(!is_numeric($minuto))
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(11, 'hora', null, null);
         exit();
     }
@@ -151,7 +151,7 @@ class ValidaCadastro {
     }
     if(!preg_match ('/^[0-59]{2,2}?$/', $minuto))
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(11, 'hora', null, null);
         exit();
     }
@@ -168,13 +168,13 @@ class ValidaCadastro {
 function validarPreco($preco) {
     if(!is_numeric($preco))
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(12, 'hora', null, null);
         exit();
     }
     elseif($preco < 0)
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(12, 'hora', null, null);
         exit();
     }
@@ -184,13 +184,13 @@ function validarVaga($vaga)
 {
     if(!is_numeric($vaga))
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(13, 'hora', null, null);
         exit();
     }
     elseif($vaga < 0)
     {
-        header("refresh:5;url=../cadastrarEvento.php");
+        //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(13, 'hora', null, null);
         exit();
     }
@@ -277,7 +277,7 @@ function validarVaga($vaga)
     function validarCampo($campo, $valor) {
         //$this->campo = $campo;
         if ($valor == "") {
-            header("refresh:5;url=../cadastrarEvento.php");
+            //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(7, $campo);
             exit();
         } 
