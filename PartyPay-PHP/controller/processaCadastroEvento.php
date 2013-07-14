@@ -1,6 +1,7 @@
 <?php
 
 require_once '../model/Evento.php';
+include '../tratamentoDeExcecao/ValidaCadastro.php';
 
 session_start();
 
@@ -36,6 +37,16 @@ $evento->setFacebookEventPage($facebookEventPage);
 $evento->setDescricao($descricao);
 $evento->setOrganizador($organizadorId);
 $evento->setClassificacao($classificacao);
+
+$validator= new ValidaCadastro();
+$validator->validarCampo("Nome",$nome);
+$validator->checkData($dataInicio);
+$validator->checkData($dataTermino);
+$validator->checktime($horaInicio, $minutoInicio);
+$validator->checktime($horaTermino, $minutoTermino);
+$validator->validarPreco($precoMasc);
+$validator->validarPreco($precoFem);
+$validator->validarVaga($numeroIngressos);
 
 $_SESSION['eventoid'] = $evento->persist();
 header("Location:../cadastrar-evento-local.php");
