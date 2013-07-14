@@ -1,7 +1,5 @@
 <?php require_once ('header.php'); 
 
-include "model/Evento.php";
-
 if(isset($evento)){
 	unset($evento);
 }
