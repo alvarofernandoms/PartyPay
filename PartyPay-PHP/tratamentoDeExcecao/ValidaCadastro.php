@@ -116,16 +116,15 @@ class ValidaCadastro {
         $d = $data[0];
         $m = $data[1];
         $y = $data[2];
-
+        
         if ($y < 2013) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(8, 'data', null, null);
             return $this->mensagens(8, 'data', null, null);
             exit();
         }
-
         $result = checkdate($m, $d, $y);
-        if ($result == 0) {
+        if ($result == FALSE) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
             return $this->mensagens(2, 'data', null, null);
