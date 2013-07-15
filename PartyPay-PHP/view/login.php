@@ -1,4 +1,5 @@
 <?php
+
 include 'model/Pessoa.php';
 
 
@@ -22,5 +23,4 @@ $_SESSION['cpf'] = $cpf;
 $_SESSION['telefoneContato'] = $telefone;
 
 header("location: index.php");
-
 ?>
