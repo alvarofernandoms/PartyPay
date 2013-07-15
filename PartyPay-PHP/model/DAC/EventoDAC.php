@@ -56,7 +56,7 @@ class EventoDAC {
         $resultado = mysql_query($sql) or die(mysql_error());
         $row = mysql_fetch_array($resultado);
 
-        if (mysql_num_rows($resultado)==1){
+        if (mysql_num_rows($resultado) == 1) {
             $evento->setNome($row['nome']);
             $evento->setDataInicio($row['dataInicio']);
             $evento->setDataTermino($row['dataTermino']);
@@ -73,8 +73,8 @@ class EventoDAC {
             $evento->setMiniatura($row['miniatura']);
             $evento->setClassificacao($row['classificacao']);
 
-           return 1;
-        }else{
+            return 1;
+        } else {
             return NULL;
         }
         mysql_close($conexao);

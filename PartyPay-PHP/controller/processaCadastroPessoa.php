@@ -22,7 +22,7 @@ addcslashes($cpf, $strList);
 addcslashes($telefoneContato, $strList);
 
 //Validação comentada para rodar no localhost
-$validator= new ValidaCadastro();
+$validator = new ValidaCadastro();
 $validator->validarEmail($email);
 //inclua aqui o resto das chamadas dos metodos de validaçao;
 //$mensagem=$validator->msg;
@@ -54,5 +54,4 @@ $_SESSION['email'] = $email;
 $_SESSION['password'] = $password;
 
 header("location: processaLogin.php");
-
 ?>
