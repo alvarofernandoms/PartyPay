@@ -15,6 +15,7 @@ Autores
 Danilo Maia Rodrigues (GPP).
 Guilherme Carvalho Muniz (GPP).
 Victor Cotrim de Lima (GPP).
+Edson Gomes (GPP e MDS).
 Álvaro Fernando (MDS).
 André Ferraz (MDS).
 Fagner Rodrigues (MDS).
