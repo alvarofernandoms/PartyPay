@@ -98,7 +98,7 @@ class ValidaCadastro {
       } */
 
     // Validar Datas (DD/MM/AAAA)
-    function checkData($date) {
+    function checkData($date) {        
         if (!isset($date) || $date == "") {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
