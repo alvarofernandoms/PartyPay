@@ -129,6 +129,7 @@ class ValidaCadastro {
     {
         //header("refresh:5;url=../cadastrarEvento.php");
         echo $this->mensagens(3, 'hora', null, null);
+        return $this->mensagens(3, 'hora', null, null);
         exit();
     }
     if(!is_numeric($minuto))

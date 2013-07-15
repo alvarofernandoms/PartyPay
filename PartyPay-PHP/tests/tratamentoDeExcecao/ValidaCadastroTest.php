@@ -100,7 +100,7 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
     public function testValidarDataAnoInferior() {
         // Remove the following lines when you implement this test.
         //$this->markTestSkipped('pulando teste para não comitar quebrado');
-        $actual = $this->object->checkData('24/04/2010');
+        $actual = $this->object->validarData('24/04/2010');
         $expected = "Ano informado é inferior ao ano corrente <br />";
         $this->assertEquals($expected,$actual);
     }
@@ -121,9 +121,9 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
      */
     public function testChecktime() {
         // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $expected = NULL;
+        $actual = $this->object->checktime(23, 59);
+        $this->assertEquals($expected,$actual);
     }
 
     /**
