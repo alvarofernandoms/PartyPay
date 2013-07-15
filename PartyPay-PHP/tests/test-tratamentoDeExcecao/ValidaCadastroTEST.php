@@ -83,8 +83,8 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
 
     public function testValidarDataDia() {
         // Remove the following lines when you implement this test.
-        $this->markTestSkipped('pulando teste para não comitar quebrado');
-        $actual = $this->object->validarData('244/04/2013');
+        //$this->markTestSkipped('pulando teste para não comitar quebrado');
+        $actual = $this->object->checkData('510/04/2013');
         $expected = "Data em formato inválido, informe data como (Ex: DD/MM/AAAA) <br />";
         $this->assertEquals($expected, $actual);
     }

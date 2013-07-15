@@ -10,7 +10,7 @@
  *
  * @author Fagner-note
  */
-require_once '../model/DAC/PessoaDAC.php';
+require_once '../../model/DAC/PessoaDAC.php';
 
 class ValidaCadastro {
 
@@ -102,12 +102,14 @@ class ValidaCadastro {
         if (!isset($date) || $date == "") {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
+            return $this->mensagens(2, 'data', null, null);
             exit();
         }
 
         if (!preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}$/', $date)) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
+            return $this->mensagens(2, 'data', null, null);
             exit();
         }
         $data = explode("/", $date);
@@ -118,6 +120,7 @@ class ValidaCadastro {
         if ($y < 2013) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(8, 'data', null, null);
+            return $this->mensagens(8, 'data', null, null);
             exit();
         }
 
@@ -125,6 +128,7 @@ class ValidaCadastro {
         if ($result == 0) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
+            return $this->mensagens(2, 'data', null, null);
             exit();
         }
     }
