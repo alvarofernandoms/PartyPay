@@ -18,8 +18,8 @@ mysql_connect("$host", "$username", "$password") or die("cannot connect");
 mysql_select_db("$db_name") or die("Banco não encontrado.");
 
 if (isset($_SESSION['email'])) {
-	$_POST['email'] = $_SESSION['email'];
-	$_POST['password'] = $_SESSION['password'];
+    $_POST['email'] = $_SESSION['email'];
+    $_POST['password'] = $_SESSION['password'];
 }
 
 // email e password da FORM que vem do index.php
@@ -54,7 +54,7 @@ if ($count == 1) {
     $_SESSION['email'] = $email;
     $_SESSION['password'] = $mypassword;
     $_SESSION['id'] = $row['id'];
-    
+
     //Para testar se o id está sendo passado corretamente:
     //DESCOMENTE ESTA LINHA, E COMENTE A DO HEADER!
     //echo $_SESSION['id'];

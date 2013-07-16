@@ -16,7 +16,6 @@ class PessoaDAC {
         $RES = mysql_query("SELECT LAST_INSERT_ID()");
         $mat = mysql_fetch_array($RES);
         mysql_close($conexao);
-
         return $mat['0'];
     }
 
@@ -24,7 +23,7 @@ class PessoaDAC {
         include_once 'conexao.php';
         $sql = "UPDATE `pessoas` SET `$atributo`=$atributoNovo WHERE id=". $pessoa->getId();
         mysql_query($sql) or die(mysql_error());
-        mysql_close($conexao);
+
     }
 
     public static function atualizar($pessoa){
@@ -37,14 +36,12 @@ class PessoaDAC {
         telefoneContato='" . $pessoa->getTelefoneContato() . "'
         WHERE id='". $pessoa->getId() ."'";
         mysql_query($sql) or die(mysql_error());
-        mysql_close($conexao);
     }
 
     public static function delete($pessoa) {
         include_once 'conexao.php';
         $sql = "DELETE FROM `pessoas` WHERE id=";
         mysql_query($sql) or die(mysql_error());
-        mysql_close($conexao);
     }
 
     public static function recupere($pessoa, $id) {
@@ -66,15 +63,13 @@ class PessoaDAC {
         }else{
             return NULL;
         }
-        mysql_close($conexao);
     }
 
     public static function verifiqueDispo($email) {
         include_once 'conexao.php';
         $sql = "SELECT email FROM pessoas WHERE email='$email'";
         $result = mysql_query($sql);
-        mysql_close($cn);
-        if (mysql_num_rows($result) === 0) {
+        if (mysql_num_rows($result) == 0) {
             return 1;
         } else {
             return 0;

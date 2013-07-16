@@ -45,7 +45,7 @@ class LocalTEST extends PHPUnit_Framework_TestCase {
     public function testInsercaoCep() {
         $cep = $this->test->setCep("72.000-000");
         $nomeTeste = $this->test->getCep();
-        $this->assertEquals("Gama", $nomeTeste);
+        $this->assertEquals("72.000-000", $nomeTeste);
     }
 
     public function testInsercaoPais() {
@@ -63,7 +63,7 @@ class LocalTEST extends PHPUnit_Framework_TestCase {
     public function testInsercaoFotos() {
         $fotos = $this->test->setFotos("Foto 0001");
         $nomeTeste = $this->test->getFotos();
-        $this->assertEquals("Foto 001", $nomeTeste);
+        $this->assertEquals("Foto 0001", $nomeTeste);
     }
 
     public function testInsercaoId() {

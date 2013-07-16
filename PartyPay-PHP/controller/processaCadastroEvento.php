@@ -38,8 +38,8 @@ $evento->setDescricao($descricao);
 $evento->setOrganizador($organizadorId);
 $evento->setClassificacao($classificacao);
 
-$validator= new ValidaCadastro();
-$validator->validarCampo("Nome",$nome);
+$validator = new ValidaCadastro();
+$validator->validarCampo("Nome", $nome);
 $validator->checkData($dataInicio);
 $validator->checkData($dataTermino);
 $validator->checktime($horaInicio, $minutoInicio);

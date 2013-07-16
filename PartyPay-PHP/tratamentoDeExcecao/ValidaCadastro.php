@@ -1,5 +1,7 @@
 <?php
 
+//$coverage = new PHP_CodeCoverage;
+//$coverage->start('ValidaCadastroTEST.php');
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,7 +12,7 @@
  *
  * @author Fagner-note
  */
-include '../../model/DAC/PessoaDAC.php';
+require_once '../../model/DAC/PessoaDAC.php';
 
 class ValidaCadastro {
 
@@ -29,6 +31,7 @@ class ValidaCadastro {
         $this->msg[5] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
         $this->msg[6] = "Preencha o campo " . $campo . " com numeros <br />"; // APENAS NUMEROS
         $this->msg[7] = "Por favor Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
+        $this->msg[8] = "Ano informado e inferior ao ano corrente <br />"; // Data menor que ano corrente
         //$this->msg[8] = "O " . $campo . " deve ter no máximo " . $max . " caracteres <br />"; // MÁXIMO DE CARACTERES
         //$this->msg[9] = "O " . $campo . " deve ter no mínimo " . $min . " caracteres <br />"; // MÍNIMO DE CARACTERES
         $this->msg[10] = "E-mail já exite, cadastre outro e-mail <br />"; //apenas e-mail não armazenado no banco
@@ -42,19 +45,19 @@ class ValidaCadastro {
     function validarEmail($email) {
         //if (!preg_match("/^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$/", $email)) {
         //if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)){
+        if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)) {
             //header("refresh:5;url=../cadastrarPessoa.php");
             echo $this->mensagens(0, 'email', null, null);
             return $this->mensagens(0, 'email', null, null);
             exit;
             //return $this->mensagens(0, 'email', null, null);
-        } else{
-                     
-            if ( PessoaDAC::verifiqueDispo($email) == 1) {
-                
+        } else {
+
+            if (PessoaDAC::verifiqueDispo($email) == 0) {
+
                 //header("refresh:5;url=../cadastrarPessoa.php");
                 echo $this->mensagens(10, 'email', null, null);
-                return $this->mensagens(10, 'email', null, null);
+                //return $this->mensagens(10, 'email', null, null);
                 exit;
             }
         }
@@ -72,22 +75,57 @@ class ValidaCadastro {
      * TODO:Refatarar mensagem de return
      * refatorar número mágico em condição if
      */
-    function validarData($data) {
-        //if (!preg_match("/^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
-        $data = explode("/", $data);
-        $dia = $data[0];
-        $mes = $data[1];
-        $ano = $data[2];
+    /* function validarData($data) {
+      //if (!preg_match("/^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
+      $data = explode("/", $data);
+      $dia = $data[0];
+      $mes = $data[1];
+      $ano = $data[2];
 
-        if ($ano < 2013) {
+      if ($ano < 2013) {
+      //header("refresh:5;url=../cadastrarEvento.php");
+      echo "Ano informado é inferior ao ano corrente <br />";
+      return "Ano informado é inferior ao ano corrente <br />";
+      exit();
+      }
+
+      $result = checkdate($mes, $dia, $ano);
+
+      if ($result == FALSE) {
+      //header("refresh:5;url=../cadastrarEvento.php");
+      echo $this->mensagens(2, 'data', null, null);
+      return $this->mensagens(2, 'data', null, null);
+      exit();
+      }
+      } */
+
+    // Validar Datas (DD/MM/AAAA)
+    function checkData($date) {        
+        if (!isset($date) || $date == "") {
             //header("refresh:5;url=../cadastrarEvento.php");
-            echo "Ano informado é inferior ao ano corrente <br />";
-            return "Ano informado é inferior ao ano corrente <br />";
+            echo $this->mensagens(2, 'data', null, null);
+            return $this->mensagens(2, 'data', null, null);
             exit();
         }
 
-        $result = checkdate($mes, $dia, $ano);
-
+        if (!preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}$/', $date)) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(2, 'data', null, null);
+            return $this->mensagens(2, 'data', null, null);
+            exit();
+        }
+        $data = explode("/", $date);
+        $d = $data[0];
+        $m = $data[1];
+        $y = $data[2];
+        
+        if ($y < 2013) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(8, 'data', null, null);
+            return $this->mensagens(8, 'data', null, null);
+            exit();
+        }
+        $result = checkdate($m, $d, $y);
         if ($result == FALSE) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(2, 'data', null, null);
@@ -96,83 +134,50 @@ class ValidaCadastro {
         }
     }
 
-    // Validar Datas (DD/MM/AAAA)
-    function checkData($date){
-        if (!isset($date) || $date=="")
-        {
-            //header("refresh:5;url=../cadastrarEvento.php");
-            echo $this->mensagens(2, 'data', null, null);
-            exit();
-        }
-        
-        if (!preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}$/', $date))
-        {
-            //header("refresh:5;url=../cadastrarEvento.php");
-            echo $this->mensagens(2, 'data', null, null);
-            exit();
-        }
-        $data = explode("/", $date);
-        $d = $data[0];
-        $m = $data[1];
-        $y = $data[2];
-        $result = checkdate($m, $d, $y);
-        if($result == 0)
-        {
-            //header("refresh:5;url=../cadastrarEvento.php");
-            echo $this->mensagens(2, 'data', null, null);
-            exit();
-        }
-    }
     // VALIDAR HORA (23:59)
-    function checktime($hora, $minuto){
-    if(!is_numeric($hora))
-    {
-        //header("refresh:5;url=../cadastrarEvento.php");
-        echo $this->mensagens(3, 'hora', null, null);
-        exit();
-    }
-    if(!is_numeric($minuto))
-    {
-        //header("refresh:5;url=../cadastrarEvento.php");
-        echo $this->mensagens(11, 'hora', null, null);
-        exit();
-    }
-    if(!preg_match ('/^[0-23]{2,2}?$/', $hora))
-    {
-        //header("refresh:5;url=../cadastrarEvento.php");
-        echo $this->mensagens(3, 'hora', null, null);
-        exit();
-    }
-    if(!preg_match ('/^[0-59]{2,2}?$/', $minuto))
-    {
-        //header("refresh:5;url=../cadastrarEvento.php");
-        echo $this->mensagens(11, 'hora', null, null);
-        exit();
-    }
-   /*list($hour,$minute) = explode(':',$time);
- 
-   if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60)
-   {
-      return true;
-   }
-   else
-       return $this->mensagens(3, 'hora', null, null);*/
-} 
+    function checktime($hora, $minuto) {
+        if (!is_numeric($hora)) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(3, 'hora', null, null);
+            exit();
+        }
+        if (!is_numeric($minuto)) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(11, 'hora', null, null);
+            exit();
+        }
+        if (!preg_match('/^[0-23]{2,2}?$/', $hora)) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(3, 'hora', null, null);
+            exit();
+        }
+        if (!preg_match('/^[0-59]{2,2}?$/', $minuto)) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(11, 'hora', null, null);
+            exit();
+        }
+        /* list($hour,$minute) = explode(':',$time);
 
-function validarPreco($preco) {
-    if(!is_numeric($preco))
-    {
-        //header("refresh:5;url=../cadastrarEvento.php");
-        echo $this->mensagens(12, 'hora', null, null);
-        exit();
+          if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60)
+          {
+          return true;
+          }
+          else
+          return $this->mensagens(3, 'hora', null, null); */
     }
-    elseif($preco < 0)
-    {
-        //header("refresh:5;url=../cadastrarEvento.php");
-        echo $this->mensagens(12, 'hora', null, null);
-        exit();
+
+    function validarPreco($preco) {
+        if (!is_numeric($preco)) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(12, 'hora', null, null);
+            exit();
+        } elseif ($preco < 0) {
+            //header("refresh:5;url=../cadastrarEvento.php");
+            echo $this->mensagens(12, 'hora', null, null);
+            exit();
+        }
     }
-}
+
     // VALIDAR HORA (23:59)
 
     function validarVaga($vaga) {
@@ -284,4 +289,9 @@ function validarPreco($preco) {
 
 }
 
-?>
+//$coverage->stop();
+
+//$writer = new PHP_CodeCoverage_Report_Clover;
+//$writer->process($coverage, '/tmp/clover.xml');
+
+?>  
