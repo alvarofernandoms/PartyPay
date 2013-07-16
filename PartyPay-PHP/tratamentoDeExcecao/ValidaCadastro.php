@@ -49,15 +49,11 @@ class ValidaCadastro {
             return $this->mensagens(0, 'email', null, null);
             exit;
 
-        } else {
-
-            if (PessoaDAC::verifiqueDispo($email) == 0) {
-
+        } elseif (PessoaDAC::verifiqueDispo($email) == 0) {
                 //header("refresh:5;url=../cadastrarPessoa.php");
                 echo $this->mensagens(10, 'email', null, null);
                 //return $this->mensagens(10, 'email', null, null);
                 exit;
-            }
         }
     }
 
