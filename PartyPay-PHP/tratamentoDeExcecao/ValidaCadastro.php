@@ -12,7 +12,7 @@
  *
  * @author Fagner-note
  */
-require_once '../../model/DAC/PessoaDAC.php';
+require_once '../model/DAC/PessoaDAC.php';
 
 class ValidaCadastro {
 
@@ -27,7 +27,7 @@ class ValidaCadastro {
         $this->msg[1] = "CEP com formato inválido (Ex: XXXXX-XXX) <br />"; // CEP
         $this->msg[2] = "Data em formato inválido, informe data como (Ex: DD/MM/AAAA) <br />"; // DATA
         $this->msg[3] = "Hora em formato inválido <br />"; // HORA
-        $this->msg[4] = "Telefone inválido (Ex: 01433333333) <br />"; // TELEFONE
+        $this->msg[4] = "Telefone inválido (Ex: 61-33333333) <br />"; // TELEFONE
         $this->msg[5] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
         $this->msg[6] = "Preencha o campo " . $campo . " com numeros <br />"; // APENAS NUMEROS
         $this->msg[7] = "Por favor Preencha o campo " . $campo . " <br />"; // CAMPO VAZIO
@@ -43,14 +43,12 @@ class ValidaCadastro {
 
     // Validar Email
     function validarEmail($email) {
-        //if (!preg_match("/^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$/", $email)) {
-        //if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)) {
             //header("refresh:5;url=../cadastrarPessoa.php");
             echo $this->mensagens(0, 'email', null, null);
             return $this->mensagens(0, 'email', null, null);
             exit;
-            //return $this->mensagens(0, 'email', null, null);
+
         } else {
 
             if (PessoaDAC::verifiqueDispo($email) == 0) {
@@ -69,35 +67,6 @@ class ValidaCadastro {
             return $this->mensagens(1, 'cep', null, null);
         }
     }
-
-    // Validar Datas (DD/MM/AAAA)
-    /*
-     * TODO:Refatarar mensagem de return
-     * refatorar número mágico em condição if
-     */
-    /* function validarData($data) {
-      //if (!preg_match("/^[0-9]{2}/[0-9]{2}/[0-9]{4}$", $data)) {
-      $data = explode("/", $data);
-      $dia = $data[0];
-      $mes = $data[1];
-      $ano = $data[2];
-
-      if ($ano < 2013) {
-      //header("refresh:5;url=../cadastrarEvento.php");
-      echo "Ano informado é inferior ao ano corrente <br />";
-      return "Ano informado é inferior ao ano corrente <br />";
-      exit();
-      }
-
-      $result = checkdate($mes, $dia, $ano);
-
-      if ($result == FALSE) {
-      //header("refresh:5;url=../cadastrarEvento.php");
-      echo $this->mensagens(2, 'data', null, null);
-      return $this->mensagens(2, 'data', null, null);
-      exit();
-      }
-      } */
 
     // Validar Datas (DD/MM/AAAA)
     function checkData($date) {        
@@ -156,14 +125,6 @@ class ValidaCadastro {
             echo $this->mensagens(11, 'hora', null, null);
             exit();
         }
-        /* list($hour,$minute) = explode(':',$time);
-
-          if ($hour > -1 && $hour < 24 && $minute > -1 && $minute < 60)
-          {
-          return true;
-          }
-          else
-          return $this->mensagens(3, 'hora', null, null); */
     }
 
     function validarPreco($preco) {
@@ -181,7 +142,6 @@ class ValidaCadastro {
     }
 
     // VALIDAR HORA (23:59)
-
     function validarVaga($vaga) {
         if (!is_numeric($vaga)) {
             //header("refresh:5;url=../cadastrarEvento.php");
@@ -196,10 +156,11 @@ class ValidaCadastro {
         }
     }
 
-    // Validar Telefone (01432363810)
+    // Validar Telefone (61-32363810)
     function validarTelefone($telefone) {
-        if (!eregi("^[0-9]{11}$", $telefone)) {
-            return $this->mensagens(4, 'telefone', null, null);
+        if (!preg_match('^\(+[0-9]{2,3}\) [0-9]{4}-[0-9]{4}$^', $telefone)) {
+            echo $this->mensagens(4, 'telefone', null, null);
+            exit();
         }
     }
 
