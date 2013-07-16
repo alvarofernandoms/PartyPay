@@ -24,8 +24,9 @@ addcslashes($telefoneContato, $strList);
 //Validação comentada para rodar no localhost
 $validator = new ValidaCadastro();
 $validator->validarEmail($email);
+$validator->validarTelefone($telefoneContato);
+
 //inclua aqui o resto das chamadas dos metodos de validaçao;
-//$mensagem=$validator->msg;
 //echo "<script>alert('$mensagem');</script>";
 
 
