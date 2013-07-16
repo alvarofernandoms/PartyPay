@@ -25,6 +25,7 @@ addcslashes($telefoneContato, $strList);
 $validator = new ValidaCadastro();
 $validator->validarEmail($email);
 $validator->validarTelefone($telefoneContato);
+$validator->validarCpf($cpf);
 
 //inclua aqui o resto das chamadas dos metodos de validaçao;
 //echo "<script>alert('$mensagem');</script>";

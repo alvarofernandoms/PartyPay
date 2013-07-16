@@ -63,8 +63,9 @@ class ValidaCadastro {
 
     // Validar CEP (xxxxx-xxx)
     function validarCep($cep) {
-        if (!eregi("^[0-9]{5}-[0-9]{3}$", $cep)) {
-            return $this->mensagens(1, 'cep', null, null);
+        if(!preg_match('/^[0-9]{5,5}([- ]?[0-9]{3,3})?$/', $cep)) {
+            echo $this->mensagens(1, 'cep', null, null);
+            exit();
         }
     }
 
@@ -161,67 +162,30 @@ class ValidaCadastro {
     }
 
     // Validar CPF (99999999999)
-    function validarCpf($cpf) {
-
-        if (!is_numeric($cpf)) {
-            $status = false;
-        } else {
-            # Pega o digito verificador
-            $dv_informado = substr($cpf, 9, 2);
-
-            for ($i = 0; $i <= 8; $i++) {
-                $digito[$i] = substr($cpf, $i, 1);
-            }
-            # Calcula o valor do 10° digito de verificação
-            $posicao = 10;
-            $soma = 0;
-
-            for ($i = 0; $i <= 8; $i++) {
-                $soma = $soma + $digito[$i] * $posicao;
-                $posicao = $posicao - 1;
-            }
-
-            $digito[9] = $soma % 11;
-
-            if ($digito[9] < 2) {
-                $digito[9] = 0;
-            } else {
-                $digito[9] = 11 - $digito[9];
-            }
-
-            # Calcula o valor do 11° digito de verificação
-            $posicao = 11;
-            $soma = 0;
-
-            for ($i = 0; $i <= 9; $i++) {
-                $soma = $soma + $digito[$i] * $posicao;
-                $posicao = $posicao - 1;
-            }
-
-            $digito[10] = $soma % 11;
-
-            if ($digito[10] < 2) {
-                $digito[10] = 0;
-            } else {
-                $digito[10] = 11 - $digito[10];
-            }
-
-            # Verifica se o dv é igual ao informado
-            $dv = $digito[9] * 10 + $digito[10];
-
-            if ($dv != $dv_informado) {
-                $status = false;
-            }
-            else
-                $status = true;
+function validarCpf($cpf){
+        $cpf         = preg_replace("/[^0-9]/", "", $cpf);
+        $digitoUm     = 0;
+        $digitoDois = 0;
+         
+        for($i = 0, $x = 10; $i <= 8; $i++, $x--){
+            $digitoUm += $cpf[$i] * $x;
         }
-
-        # Se houver erro
-        if (!$status) {
-            return $this->mensagens(5, 'cpf', null, null);
+        for($i = 0, $x = 11; $i <= 9; $i++, $x--){
+            if(str_repeat($i, 11) == $cpf){
+                echo $this->mensagens(5, 'cpf', null, null);
+                exit();
+            }
+            $digitoDois += $cpf[$i] * $x;
+        }
+         
+        $calculoUm  = (($digitoUm%11) < 2) ? 0 : 11-($digitoUm%11);
+        $calculoDois = (($digitoDois%11) < 2) ? 0 : 11-($digitoDois%11);
+        if($calculoUm <> $cpf[9] || $calculoDois <> $cpf[10]){
+            echo $this->mensagens(5, 'cpf', null, null);
+            exit();
         }
     }
-
+    
 // Validar Numero
     function validarNumero($campo, $numero) {
         if (!is_numeric($numero)) {
