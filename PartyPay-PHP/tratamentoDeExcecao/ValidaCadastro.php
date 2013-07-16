@@ -1,7 +1,7 @@
 <?php
 
-$coverage = new PHP_CodeCoverage;
-$coverage->start('ValidaCadastroTEST.php');
+//$coverage = new PHP_CodeCoverage;
+//$coverage->start('ValidaCadastroTEST.php');
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -289,7 +289,7 @@ class ValidaCadastro {
 
 }
 
-$coverage->stop();
+//$coverage->stop();
 
 //$writer = new PHP_CodeCoverage_Report_Clover;
 //$writer->process($coverage, '/tmp/clover.xml');
