@@ -170,10 +170,12 @@ class ValidaCadastro {
         if (!is_numeric($preco)) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(12, 'hora', null, null);
+            return $this->mensagens(12, 'hora', null, null);
             exit();
         } elseif ($preco < 0) {
             //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(12, 'hora', null, null);
+            return $this->mensagens(12, 'hora', null, null);
             exit();
         }
     }
@@ -182,12 +184,14 @@ class ValidaCadastro {
 
     function validarVaga($vaga) {
         if (!is_numeric($vaga)) {
-            header("refresh:5;url=../cadastrarEvento.php");
+            //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(13, 'hora', null, null);
+            return $this->mensagens(13, 'hora', null, null);
             exit();
         } elseif ($vaga < 0) {
-            header("refresh:5;url=../cadastrarEvento.php");
+            //header("refresh:5;url=../cadastrarEvento.php");
             echo $this->mensagens(13, 'hora', null, null);
+            return $this->mensagens(13, 'hora', null, null);
             exit();
         }
     }

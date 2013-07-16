@@ -131,26 +131,46 @@ class ValidaCadastroTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers ValidaCadastro::validarPreco
-     * @todo   Implement testValidarPreco().
      */
     public function testValidarPreco() {
         // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $preco = 20;
+        $expected = NULL;
+        $actual = $this->object->validarPreco($preco);
+        
+        $this->assertEquals($expected, $actual);
+    }
+
+        public function testValidarPrecoNegativo() {
+        // Remove the following lines when you implement this test.
+        $preco = -20;
+        $expected = "Informe um preço válido <br />";
+        $actual = $this->object->validarPreco($preco);
+        
+        $this->assertEquals($expected, $actual);
     }
 
     /**
      * @covers ValidaCadastro::validarVaga
-     * @todo   Implement testValidarVaga().
      */ 
     public function testValidarVaga() {
         // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $vaga = 100;
+        $expected = NULL;
+        $actual = $this->object->validarVaga($vaga);
+        
+        $this->assertEquals($expected, $actual);
     }
 
+    public function testValidarVagaNegativa() {
+        // Remove the following lines when you implement this test.
+        $vaga = -100;
+        $expected = "Informe um número de vagas válida <br />";
+        $actual = $this->object->validarVaga($vaga);
+        
+        $this->assertEquals($expected, $actual);
+    }
+    
     /**
      * @covers ValidaCadastro::validarTelefone
      * @todo   Implement testValidarTelefone().
