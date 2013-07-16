@@ -2,7 +2,7 @@
 
 include '../../model/Pessoa.php';
 
-class processaEditarpessoaTEST extends PHPUnit_Framework_TestCase {
+class processaEditaPessoaTEST extends PHPUnit_Framework_TestCase {
 
     public $test;
 
